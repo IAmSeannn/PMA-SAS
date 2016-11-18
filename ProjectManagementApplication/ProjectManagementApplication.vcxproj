@@ -147,11 +147,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DateTime.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Project.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DateTime.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="Project.h" />
   </ItemGroup>
   <ItemGroup>

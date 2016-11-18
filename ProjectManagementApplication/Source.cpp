@@ -1,36 +1,42 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include "parser.h"
 
-int main(int argc, char* argv[])
+void TryLoadFile(std::string path, std::stringstream &buf)
 {
-	if (argv[1] != NULL)
+	std::ifstream file(path);
+
+	if (file)
 	{
-		std::cout << "Arg is :: " << argv[1] << "\n";
-
-		std::ifstream file(argv[1]);
-
-		if (file)
-		{
-			std::stringstream buffer;
-
-			buffer << file.rdbuf();
-
-			file.close();
-
-			// operations on the buffer...
-
-			std::cout << "VICTORY" << "\n\n";
-
-			std::cout << buffer.str();
-		}
-		else
-		{
-			std::cout << "Error loading file!";
-		}
+		buf << file.rdbuf();
+		file.close();
 	}
 	else
 	{
-		std::cout << "No command line specified!";
+		std::cout << "Error loading file!";
 	}
+}
+
+int main(int argc, char* argv[])
+{
+	std::stringstream buffer;
+
+	if (argv[1] != NULL)
+	{
+		TryLoadFile(argv[1], buffer);
+	}
+	else
+	{
+		std::cout << "No command line specified, reverting to plan b \n";
+		TryLoadFile("../ProjectManagementApplication/testing.pma", buffer);
+	}
+
+	Parser p(buffer);
+
+
+
+
+	std::cin.get();
+	std::cin.get();
 }
