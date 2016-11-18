@@ -1,9 +1,36 @@
 #include <iostream>
+#include <sstream>
+#include <fstream>
 
-int main()
+int main(int argc, char* argv[])
 {
-	std::cout << "Hello World!";
+	if (argv[1] != NULL)
+	{
+		std::cout << "Arg is :: " << argv[1] << "\n";
 
-	std::cin.get();
-	std::cin.get();
+		std::ifstream file(argv[1]);
+
+		if (file)
+		{
+			std::stringstream buffer;
+
+			buffer << file.rdbuf();
+
+			file.close();
+
+			// operations on the buffer...
+
+			std::cout << "VICTORY" << "\n\n";
+
+			std::cout << buffer.str();
+		}
+		else
+		{
+			std::cout << "Error loading file!";
+		}
+	}
+	else
+	{
+		std::cout << "No command line specified!";
+	}
 }

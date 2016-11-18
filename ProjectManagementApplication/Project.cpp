@@ -5,9 +5,3 @@ Project::Project(std::string name, std::string desc, std::string start, std::str
 	: name_(name), description_(desc), start_(start), deadline_(deadline)
 {
 }
-
-
-Project::~Project()
-{
-
-}
