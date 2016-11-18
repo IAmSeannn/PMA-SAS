@@ -1,0 +1,22 @@
+<project>
+	<task>
+		<meeting>
+			<start>12/01/1992 08:08</start>
+			<end>12/01/1992 09:09</end>
+			<location>Steve's House</location>
+			<names>Steve, Phil, Mike</names>
+		</meeting>
+		<workDone>
+			<start>12/01/1992 08:08</start>
+			<end>12/01/1992 09:09</end>
+			<description>This is a nice description.</description>
+		</workDone>
+		<bugFix>
+			<start>12/01/1992 08:08</start>
+			<end>12/01/1992 09:09</end>
+			<id>749</id>
+			<description>This is a terrible bug.</description>
+		</bugFix>
+	</task>
+</project>
+
