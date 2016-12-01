@@ -1,15 +1,12 @@
 #include <iostream>
-#include "tinyxml2.h"
+#include "XMLTutorial.h"
 
 int main(int argc, char* argv[])
 {
-	tinyxml2::XMLDocument doc;
-	doc.LoadFile("../ProjectManagementApplication/testing.xml");
 
-	tinyxml2::XMLText* textNode = doc.FirstChildElement("project")->FirstChildElement("task")->FirstChildElement("name")->FirstChild()->ToText();
-	auto name = textNode->Value();
-
-	std::cout << "The name of the first task is :: " << name;
+	XMLTutorial tut;
+	//tut.RunCreate();  //runs code that creates an xml file
+	tut.RunLoad();		//runs code that loads an xml file
 
 	std::cin.get();
 	std::cin.get();

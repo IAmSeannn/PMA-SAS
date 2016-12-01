@@ -7,6 +7,8 @@
 class DateTime
 {
 public:
+	DateTime() {};
+	~DateTime() {};
 	DateTime(std::string);             // parse from a string format
 	std::string getFormatted() const;  // return as a formatted string
 
