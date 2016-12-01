@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<note>
-  <to>Tove</to>
-  <from>Jani</from>
-  <heading>Reminder</heading>
-  <body>Don't forget me this weekend!</body>
-</note>
+<project>
+  <task>
+    <name>Make A Brew</name>
+    <desc>The first thing to do in the morning.</desc>
+  </task>
+  <task>
+    <name>Have a shower</name>
+    <desc>The second thing to do.</desc>
+  </task>
+</project>

@@ -3,16 +3,13 @@
 
 int main(int argc, char* argv[])
 {
-
 	tinyxml2::XMLDocument doc;
 	doc.LoadFile("../ProjectManagementApplication/testing.xml");
 
-	const char* title = doc.FirstChildElement("note")->FirstChildElement("body")->GetText();
-	printf("Name of play (1): %s\n", title);
+	tinyxml2::XMLText* textNode = doc.FirstChildElement("project")->FirstChildElement("task")->FirstChildElement("name")->FirstChild()->ToText();
+	auto name = textNode->Value();
 
-	tinyxml2::XMLText* textNode = doc.FirstChildElement("note")->FirstChildElement("to")->FirstChild()->ToText();
-	title = textNode->Value();
-	printf("addressed to (2): %s\n", title);
+	std::cout << "The name of the first task is :: " << name;
 
 	std::cin.get();
 	std::cin.get();
