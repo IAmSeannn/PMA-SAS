@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
+#include <vector>
 #include "DateTime.h"
+#include "TimeAllocation.h"
 
 class Task
 {
@@ -12,5 +14,6 @@ private:
 	std::string description_;
 	DateTime start_;
 	DateTime deadline_;
+	std::vector<TimeAllocation> timeAllocations_;
 };
 
