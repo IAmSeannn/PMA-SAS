@@ -1,12 +1,13 @@
 #include <iostream>
-#include "XMLTutorial.h"
+#include "DataCzar.h"
+
+
 
 int main(int argc, char* argv[])
 {
+	//todo: add checks incase path isnt valid
+	DataCzar Data(argv[1]);
 
-	XMLTutorial tut;
-	//tut.RunCreate();  //runs code that creates an xml file
-	tut.RunLoad();		//runs code that loads an xml file
 
 	std::cin.get();
 	std::cin.get();
