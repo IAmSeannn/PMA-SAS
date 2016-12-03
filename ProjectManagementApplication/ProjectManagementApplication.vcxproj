@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BugFix.cpp" />
+    <ClCompile Include="DataCzar.cpp" />
     <ClCompile Include="DateTime.cpp" />
     <ClCompile Include="Meeting.cpp" />
     <ClCompile Include="Project.cpp" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BugFix.h" />
+    <ClInclude Include="DataCzar.h" />
     <ClInclude Include="DateTime.h" />
     <ClInclude Include="Meeting.h" />
     <ClInclude Include="Project.h" />
