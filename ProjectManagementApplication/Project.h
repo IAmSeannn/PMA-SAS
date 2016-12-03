@@ -18,5 +18,8 @@ public:
 	Project() {};
 	Project(std::string name, std::string desc, std::string start, std::string deadline);
 	std::string GetName() { return name_; };
+	void SetName(std::string s) { name_ = s; }
+	std::string GetDesc() { return description_; }
+	void SetDesc(std::string s) { description_ = s; }
 };
 

@@ -21,23 +21,17 @@ DataCzar::DataCzar(std::string path)
 	tinyxml2::XMLElement * pElement = pRoot->FirstChildElement("project");
 	while (pElement != nullptr)
 	{
-		//get contents of project and put it somewhere useful
-		//temp storage for any strings gotten
-		std::string tempName;
-		std::string tempDesc;
+		Project p;
 
 		//get element of name
 		tinyxml2::XMLElement * pProjectElement = pElement->FirstChildElement("name");
-		tempName = pProjectElement->GetText();
+		p.SetName(pProjectElement->GetText());
 		//do same again for desc
 		pProjectElement = pElement->FirstChildElement("desc");
-		tempDesc = pProjectElement->GetText();
-
-		//finally, create new project, add to vector
-		//currently has blank datetimes
-		Project p(tempName, tempDesc, " ", " ");
+		p.SetDesc(pProjectElement->GetText());
+		
+		//add project to list of projects
 		Projects.push_back(p);
-
 		//move xml pointer to next project in file
 		pElement = pElement->NextSiblingElement("project");
 	}
