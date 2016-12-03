@@ -30,12 +30,15 @@ void DataCzar::LoadInProjects(tinyxml2::XMLNode * pRoot)
 		//do same again for desc
 		pProjectElement = pProjectHeader->FirstChildElement("desc");
 		p.SetDesc(pProjectElement->GetText());
+		//for start datetime
+		pProjectElement = pProjectHeader->FirstChildElement("start");
+		p.SetStart(pProjectElement->GetText());
+		//for end datetime
+		pProjectElement = pProjectHeader->FirstChildElement("end");
+		p.SetDeadline(pProjectElement->GetText());
 
-
-		//do same for tasks
+		//loop through tasks and add
 		p.SetTasks(LoadInTasks(pProjectHeader));
-
-
 
 		//add project to list of projects
 		Projects.push_back(p);
@@ -60,14 +63,18 @@ std::vector<Task> DataCzar::LoadInTasks(tinyxml2::XMLNode * pCurrentProject)
 		//do same again for desc
 		pTaskElement = pTaskHeader->FirstChildElement("desc");
 		t.SetDesc(pTaskElement->GetText());
-
+		//do same for start
+		pTaskElement = pTaskHeader->FirstChildElement("start");
+		t.SetStart(pTaskElement->GetText());
+		//do same for end
+		pTaskElement = pTaskHeader->FirstChildElement("end");
+		t.SetDeadline(pTaskElement->GetText());
 
 		//do some stuff for time allocations
 		//might break. complicated. help
 		//get time allocation element
 		pTaskElement = pTaskHeader->FirstChildElement("timeAllocations");
-		t.SetTAs(LoadInTAs(pTaskElement));
-
+			t.SetTAs(LoadInTAs(pTaskElement));
 		//add t to temp vector
 		temp.push_back(t);
 
@@ -91,6 +98,11 @@ std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 		//get element of attendees
 		tinyxml2::XMLElement * pMeetingElement = pTAHeader->FirstChildElement("attendees");
 		m->SetAttendees(pMeetingElement->GetText());
+		//do for start and end
+		pMeetingElement = pTAHeader->FirstChildElement("start");
+		m->SetStart(pMeetingElement->GetText());
+		pMeetingElement = pTAHeader->FirstChildElement("end");
+		m->SetEnd(pMeetingElement->GetText());
 
 		//add m to temp vector
 		temp.push_back(m);
@@ -107,6 +119,11 @@ std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 		//get element of desc
 		tinyxml2::XMLElement * pWorkDoneElement = pTAHeader->FirstChildElement("desc");
 		w->SetDesc(pWorkDoneElement->GetText());
+		//start and end
+		pWorkDoneElement = pTAHeader->FirstChildElement("start");
+		w->SetStart(pWorkDoneElement->GetText());
+		pWorkDoneElement = pTAHeader->FirstChildElement("end");
+		w->SetEnd(pWorkDoneElement->GetText());
 
 		//add m to temp vector
 		temp.push_back(w);
@@ -123,6 +140,11 @@ std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 		//get element of desc
 		tinyxml2::XMLElement * pBugFixElement = pTAHeader->FirstChildElement("desc");
 		b->SetDesc(pBugFixElement->GetText());
+		//start and end
+		pBugFixElement = pTAHeader->FirstChildElement("start");
+		b->SetStart(pBugFixElement->GetText());
+		pBugFixElement = pTAHeader->FirstChildElement("end");
+		b->SetEnd(pBugFixElement->GetText());
 		//get element of id to int
 		pBugFixElement = pTAHeader->FirstChildElement("id");
 		int i;
@@ -138,7 +160,6 @@ std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 
 	return temp;
 }
-
 
 DataCzar::~DataCzar()
 {

@@ -6,6 +6,8 @@ class TimeAllocation
 {
 public:
 	virtual std::string GetDetails();
+	void SetStart(std::string s) { start_ = s; }
+	void SetEnd(std::string s) { end_ = s; }
 
 protected:
 	DateTime start_;

@@ -17,6 +17,8 @@ public:
 	void SetDesc(std::string s) { desc_ = s; }
 	void SetTAs(std::vector<TimeAllocation*> ta) { timeAllocations_ = ta; }
 	std::vector<TimeAllocation*> GetTAs() { return timeAllocations_; }
+	void SetStart(std::string s) { start_ = s; }
+	void SetDeadline(std::string s) { deadline_ = s; }
 private:
 	std::string name_;
 	std::string desc_;
