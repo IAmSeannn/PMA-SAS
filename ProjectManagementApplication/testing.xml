@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<root>
+﻿<root>
   <project>
     <name>Breakfast</name>
     <desc>A Project plan for breakfast</desc>
@@ -36,5 +35,10 @@
       </timeAllocations>
     </task>
     
+  </project>
+
+  <project>
+    <name>LUNCH TIME!</name>
+    <desc>A plan for lunchtime, incomplete.</desc>
   </project>
 </root>

@@ -15,6 +15,8 @@ private:
 	std::vector<Task> Tasks;
 
 public:
+	Project() {};
 	Project(std::string name, std::string desc, std::string start, std::string deadline);
+	std::string GetName() { return name_; };
 };
 

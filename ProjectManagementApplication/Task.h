@@ -14,6 +14,6 @@ private:
 	std::string description_;
 	DateTime start_;
 	DateTime deadline_;
-	std::vector<TimeAllocation> timeAllocations_;
+	//std::vector<TimeAllocation> timeAllocations_;
 };
 
