@@ -14,5 +14,8 @@ public:
 	};
 private:
 	std::vector<Project> Projects;
+	void LoadInXML(std::string);
+	void LoadInProjects(tinyxml2::XMLNode *);
+	std::vector<Task> LoadInTasks(tinyxml2::XMLNode *);
 };
 

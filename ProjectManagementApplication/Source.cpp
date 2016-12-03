@@ -15,7 +15,15 @@ int main(int argc, char* argv[])
 
 	for (Project p : Data.GetProjects())
 	{
-		std::cout << p.GetName() << "\n\n";
+		std::cout << p.GetName() << "\n";
+		std::cout << "Tasks Involved:: \n";
+
+		for (Task t : p.GetTasks())
+		{
+			std::cout << t.GetName() << "\n";
+		}
+
+		std::cout << "\n";
 	}
 
 	std::cin.get();

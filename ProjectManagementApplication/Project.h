@@ -8,7 +8,7 @@ class Project
 {
 private:
 	std::string name_;
-	std::string description_;
+	std::string desc_;
 	DateTime start_;
 	DateTime deadline_;
 
@@ -19,7 +19,9 @@ public:
 	Project(std::string name, std::string desc, std::string start, std::string deadline);
 	std::string GetName() { return name_; };
 	void SetName(std::string s) { name_ = s; }
-	std::string GetDesc() { return description_; }
-	void SetDesc(std::string s) { description_ = s; }
+	std::string GetDesc() { return desc_; }
+	void SetDesc(std::string s) { desc_ = s; }
+	std::vector<Task> GetTasks() { return Tasks; }
+	void SetTasks(std::vector<Task> t) { Tasks = t; }
 };
 
