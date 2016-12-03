@@ -1,10 +1,6 @@
 #include "TimeAllocation.h"
 
-TimeAllocation::TimeAllocation()
+std::string TimeAllocation::GetDetails()
 {
-}
-
-
-TimeAllocation::~TimeAllocation()
-{
+	return "------this class shouldnt exist------";
 }

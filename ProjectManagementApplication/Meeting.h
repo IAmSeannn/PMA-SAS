@@ -7,6 +7,7 @@ public:
 	Meeting();
 	~Meeting();
 	std::string GetDetails();
+	void SetAttendees(std::string s) { attendees_ = s; }
 private:
 	std::string attendees_;
 };

@@ -17,5 +17,6 @@ private:
 	void LoadInXML(std::string);
 	void LoadInProjects(tinyxml2::XMLNode *);
 	std::vector<Task> LoadInTasks(tinyxml2::XMLNode *);
+	std::vector<TimeAllocation*> LoadInTAs(tinyxml2::XMLNode *);
 };
 

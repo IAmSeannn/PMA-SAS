@@ -61,12 +61,81 @@ std::vector<Task> DataCzar::LoadInTasks(tinyxml2::XMLNode * pCurrentProject)
 		pTaskElement = pTaskHeader->FirstChildElement("desc");
 		t.SetDesc(pTaskElement->GetText());
 
+
+		//do some stuff for time allocations
+		//might break. complicated. help
+		//get time allocation element
+		pTaskElement = pTaskHeader->FirstChildElement("timeAllocations");
+		t.SetTAs(LoadInTAs(pTaskElement));
+
 		//add t to temp vector
 		temp.push_back(t);
 
 		//move xml pointer to next project in file
 		pTaskHeader = pTaskHeader->NextSiblingElement("task");
 	}
+	return temp;
+}
+
+std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
+{
+	//temp vector to store TAs as added
+	std::vector<TimeAllocation*> temp;
+	//loop through all TAs, 3 times, once for each type
+	//first MEETING
+	tinyxml2::XMLElement * pTAHeader = pTARoot->FirstChildElement("meeting");
+	while (pTAHeader != nullptr)
+	{
+		Meeting *m = new Meeting();
+
+		//get element of attendees
+		tinyxml2::XMLElement * pMeetingElement = pTAHeader->FirstChildElement("attendees");
+		m->SetAttendees(pMeetingElement->GetText());
+
+		//add m to temp vector
+		temp.push_back(m);
+
+		//move xml pointer to next project in file
+		pTAHeader = pTAHeader->NextSiblingElement("meeting");
+	}
+	//second WORKDONE
+	pTAHeader = pTARoot->FirstChildElement("workDone");
+	while (pTAHeader != nullptr)
+	{
+		WorkDone *w = new WorkDone();
+
+		//get element of desc
+		tinyxml2::XMLElement * pWorkDoneElement = pTAHeader->FirstChildElement("desc");
+		w->SetDesc(pWorkDoneElement->GetText());
+
+		//add m to temp vector
+		temp.push_back(w);
+
+		//move xml pointer to next project in file
+		pTAHeader = pTAHeader->NextSiblingElement("workDone");
+	}
+	//third BUGFIX
+	pTAHeader = pTARoot->FirstChildElement("bugFix");
+	while (pTAHeader != nullptr)
+	{
+		BugFix *b = new BugFix();
+
+		//get element of desc
+		tinyxml2::XMLElement * pBugFixElement = pTAHeader->FirstChildElement("desc");
+		b->SetDesc(pBugFixElement->GetText());
+		//get element of id to int
+		pBugFixElement = pTAHeader->FirstChildElement("id");
+		int i;
+		pBugFixElement->QueryIntText(&i);
+		b->SetID(i);
+
+		//add b to temp vector
+		temp.push_back(b);
+
+		//move xml pointer to next project in file
+		pTAHeader = pTAHeader->NextSiblingElement("bugFix");
+	}
+
 	return temp;
 }
 

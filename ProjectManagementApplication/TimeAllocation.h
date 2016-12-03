@@ -5,10 +5,7 @@
 class TimeAllocation
 {
 public:
-	TimeAllocation();
-	~TimeAllocation();
-
-	virtual std::string GetDetails() = 0;
+	virtual std::string GetDetails();
 
 protected:
 	DateTime start_;

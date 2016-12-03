@@ -21,6 +21,11 @@ int main(int argc, char* argv[])
 		for (Task t : p.GetTasks())
 		{
 			std::cout << t.GetName() << "\n";
+
+			for (TimeAllocation* pT : t.GetTAs())
+			{
+				std::cout << "          -" << pT->GetDetails() << "\n";
+			}
 		}
 
 		std::cout << "\n";
