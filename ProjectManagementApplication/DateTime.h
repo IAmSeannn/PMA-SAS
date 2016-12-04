@@ -11,7 +11,7 @@ public:
 	~DateTime() {};
 	DateTime(std::string);             // parse from a string format
 	std::string getFormatted() const;  // return as a formatted string
-
+	int GetDifferent(DateTime other);
 
 private:
 	int minute; // 0 to 59

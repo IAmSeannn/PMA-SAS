@@ -6,6 +6,7 @@
 #include "Meeting.h"
 #include "BugFix.h"
 #include "WorkDone.h"
+#include <iostream>
 
 class Task
 {
@@ -19,6 +20,8 @@ public:
 	std::vector<TimeAllocation*> GetTAs() { return timeAllocations_; }
 	void SetStart(std::string s) { start_ = s; }
 	void SetDeadline(std::string s) { deadline_ = s; }
+
+	std::string GetTimeSpent();
 private:
 	std::string name_;
 	std::string desc_;

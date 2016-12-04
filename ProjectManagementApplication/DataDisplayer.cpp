@@ -22,19 +22,20 @@ void DataDisplayer::PrintTest(DataCzar data)
 	PrintSubLine();
 	for (Project p : data.GetProjects())
 	{
-		std::cout << "	¬Project Name: " << p.GetName() << "\n";
-		std::cout << "	¬Tasks Involved:\n";
+		std::cout << "	>Project Name: " << p.GetName() << "\n";
+		std::cout << "	>Tasks Involved:\n";
 		PrintSubLine();
 		for (Task t : p.GetTasks())
 		{
 
-			std::cout << "		¬Task Name: " << t.GetName() << "\n";
-			std::cout << "		¬Time Spent On Task:\n";
-			PrintSubLine();
+			std::cout << "		>Task Name: " << t.GetName() << "\n";
+			std::cout << "		"<<t.GetTimeSpent() << "\n";
+			std::cout << "		>Time Allocations:\n";
 			for (TimeAllocation* pT : t.GetTAs())
 			{
-				std::cout << "			¬" << pT->GetDetails() << "\n";
+				std::cout << "			>" << pT->GetDetails() << "\n";
 			}
+			PrintSubLine();
 		}
 		PrintPageLine();
 	}

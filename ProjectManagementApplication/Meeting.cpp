@@ -12,7 +12,6 @@ Meeting::~Meeting()
 std::string Meeting::GetDetails()
 {
 	std::stringstream temp;
-	temp << " " << attendees_;
-	//temp << start_.getFormatted() << " " << end_.getFormatted() << " " << attendees_;
+	temp << "Started: " <<start_.getFormatted() << " Ended: " << end_.getFormatted() << " Attendees: " << attendees_;
 	return temp.str();
 }

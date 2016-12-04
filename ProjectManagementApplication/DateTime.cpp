@@ -21,3 +21,19 @@ std::string DateTime::getFormatted() const
 	oss << std::setw(2) << minute;
 	return oss.str();
 }
+
+int DateTime::GetDifferent(DateTime end) 
+{
+	int yearDif, monthDif, dayDif, hourDif, minuteDif;
+
+	//work out years
+	yearDif = end.year - year;
+	monthDif = end.month - month;
+	dayDif = end.day - day;
+	hourDif = end.hour - hour;
+	minuteDif = end.minute - minute;
+
+	int temp;
+	temp = (((((((yearDif * 12) + monthDif) * 30) + dayDif) * 25) + hourDif) * 60) + minuteDif;
+	return temp;
+}

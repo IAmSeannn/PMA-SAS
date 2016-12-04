@@ -14,7 +14,6 @@ BugFix::~BugFix()
 std::string BugFix::GetDetails()
 {
 	std::stringstream temp;
-	temp << " " << desc_ << " " << id_;
-	//temp << start_.getFormatted() << " " << end_.getFormatted() << " " << desc_ << " " << id_;
+	temp << "Started: " << start_.getFormatted() << " Ended: " << end_.getFormatted() << " Description: " << desc_ << " ID: " << id_;
 	return temp.str();
 }
