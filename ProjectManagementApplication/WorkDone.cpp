@@ -11,7 +11,7 @@ WorkDone::~WorkDone()
 {
 }
 
-std::string WorkDone::GetDetails()
+const std::string WorkDone::GetDetails()
 {
 	std::stringstream temp;
 	temp << " " << desc_;

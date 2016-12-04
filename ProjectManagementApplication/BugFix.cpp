@@ -11,7 +11,7 @@ BugFix::~BugFix()
 {
 }
 
-std::string BugFix::GetDetails()
+const std::string BugFix::GetDetails()
 {
 	std::stringstream temp;
 	temp << " " << desc_ << " " << id_;

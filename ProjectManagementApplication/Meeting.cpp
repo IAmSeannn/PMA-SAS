@@ -9,7 +9,7 @@ Meeting::~Meeting()
 {
 }
 
-std::string Meeting::GetDetails()
+const std::string Meeting::GetDetails()
 {
 	std::stringstream temp;
 	temp << " " << attendees_;

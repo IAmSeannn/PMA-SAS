@@ -1,3 +1,28 @@
-﻿  DataDisplayer.cpp
-  ProjectManagementApplication.vcxproj -> C:\Users\iamse\documents\visual studio 2015\Projects\ProjectManagementApplication\Debug\ProjectManagementApplication.exe
-  ProjectManagementApplication.vcxproj -> C:\Users\iamse\documents\visual studio 2015\Projects\ProjectManagementApplication\Debug\ProjectManagementApplication.pdb (Full PDB)
+﻿  WorkDone.cpp
+c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): error C2662: 'const std::string TimeAllocation::GetDetails(void)': cannot convert 'this' pointer from 'const TimeAllocation' to 'TimeAllocation &'
+  c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): note: Conversion loses qualifiers
+  TimeAllocation.cpp
+c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): error C2662: 'const std::string TimeAllocation::GetDetails(void)': cannot convert 'this' pointer from 'const TimeAllocation' to 'TimeAllocation &'
+  c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): note: Conversion loses qualifiers
+  Task.cpp
+c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): error C2662: 'const std::string TimeAllocation::GetDetails(void)': cannot convert 'this' pointer from 'const TimeAllocation' to 'TimeAllocation &'
+  c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): note: Conversion loses qualifiers
+  Source.cpp
+c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): error C2662: 'const std::string TimeAllocation::GetDetails(void)': cannot convert 'this' pointer from 'const TimeAllocation' to 'TimeAllocation &'
+  c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): note: Conversion loses qualifiers
+  Project.cpp
+c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): error C2662: 'const std::string TimeAllocation::GetDetails(void)': cannot convert 'this' pointer from 'const TimeAllocation' to 'TimeAllocation &'
+  c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): note: Conversion loses qualifiers
+  Meeting.cpp
+c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): error C2662: 'const std::string TimeAllocation::GetDetails(void)': cannot convert 'this' pointer from 'const TimeAllocation' to 'TimeAllocation &'
+  c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): note: Conversion loses qualifiers
+  DataDisplayer.cpp
+c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): error C2662: 'const std::string TimeAllocation::GetDetails(void)': cannot convert 'this' pointer from 'const TimeAllocation' to 'TimeAllocation &'
+  c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): note: Conversion loses qualifiers
+  DataCzar.cpp
+c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): error C2662: 'const std::string TimeAllocation::GetDetails(void)': cannot convert 'this' pointer from 'const TimeAllocation' to 'TimeAllocation &'
+  c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): note: Conversion loses qualifiers
+  BugFix.cpp
+c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): error C2662: 'const std::string TimeAllocation::GetDetails(void)': cannot convert 'this' pointer from 'const TimeAllocation' to 'TimeAllocation &'
+  c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\timeallocation.h(24): note: Conversion loses qualifiers
+  Generating Code...
