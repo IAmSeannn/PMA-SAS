@@ -48,6 +48,9 @@
     <ClCompile Include="DataCzar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DataDisplayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DateTime.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DataCzar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataDisplayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
