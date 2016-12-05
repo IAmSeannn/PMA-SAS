@@ -33,7 +33,7 @@ void DataDisplayer::PrintTest(DataCzar data)
 			std::cout << "		>Time Allocations:\n";
 			for (TimeAllocation* pT : t.GetTAs())
 			{
-				std::cout << "			>" << pT->GetDetails() << "\n";
+				std::cout << "			>" << pT << "\n";
 			}
 			PrintSubLine();
 		}

@@ -10,24 +10,10 @@ public:
 	void SetEnd(std::string s) { end_ = s; }
 	int GetTimeSpent();
 
-	/*std::string operator<<(const TimeAllocation& ta)
-	{
-		return GetDetails();
-	}*/
-
-	/*std::ostream& operator<<(std::ostream& os)
-	{
-		return os << GetDetails();;
-	}*/
-
-	friend std::ostream &operator<<(std::ostream &output,
-		const TimeAllocation &ta) {
-		output << ta.GetDetails();
-		return output;
-	}
-
 protected:
 	DateTime start_;
 	DateTime end_;
 };
+
+std::ostream &operator<<(std::ostream &output, TimeAllocation *ta);
 

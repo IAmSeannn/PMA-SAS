@@ -9,3 +9,9 @@ int TimeAllocation::GetTimeSpent()
 {
 	return start_.GetDifferent(end_);
 }
+
+std::ostream &operator<<(std::ostream &output, TimeAllocation *ta)
+{
+	output << ta->GetDetails();
+	return output;
+}
