@@ -11,7 +11,7 @@ WorkDone::~WorkDone()
 {
 }
 
-std::string WorkDone::GetDetails()
+const std::string WorkDone::GetDetails()
 {
 	std::stringstream temp;
 	temp << "Start: " << start_.getFormatted() << " Ended: " << end_.getFormatted() << " Description: " << desc_;

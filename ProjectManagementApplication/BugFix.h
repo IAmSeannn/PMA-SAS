@@ -5,7 +5,7 @@ class BugFix : public TimeAllocation
 public:
 	BugFix();
 	~BugFix();
-	std::string GetDetails();
+	const std::string GetDetails();
 	void SetDesc(std::string s) { desc_ = s; }
 	void SetID(int i) { id_ = i; }
 private:
