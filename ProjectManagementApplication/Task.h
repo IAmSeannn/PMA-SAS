@@ -6,6 +6,7 @@
 #include "Meeting.h"
 #include "BugFix.h"
 #include "WorkDone.h"
+#include "Research.h"
 #include <iostream>
 
 class Task

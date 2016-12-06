@@ -157,6 +157,28 @@ std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 		//move xml pointer to next project in file
 		pTAHeader = pTAHeader->NextSiblingElement("bugFix");
 	}
+	//fourth RESEARCH
+	pTAHeader = pTARoot->FirstChildElement("research");
+	while (pTAHeader != nullptr)
+	{
+		 Research *r = new Research();
+
+		//get element of desc
+		tinyxml2::XMLElement * pBugFixElement = pTAHeader->FirstChildElement("details");
+		r->SetDetails(pBugFixElement->GetText());
+		//start and end
+		pBugFixElement = pTAHeader->FirstChildElement("start");
+		r->SetStart(pBugFixElement->GetText());
+		pBugFixElement = pTAHeader->FirstChildElement("end");
+		r->SetEnd(pBugFixElement->GetText());
+		//get element of id to int
+
+		//add b to temp vector
+		temp.push_back(r);
+
+		//move xml pointer to next project in file
+		pTAHeader = pTAHeader->NextSiblingElement("research");
+	}
 
 	return temp;
 }

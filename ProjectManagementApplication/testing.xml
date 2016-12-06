@@ -50,6 +50,11 @@
           <end>28/01/2016 14:00</end>
           <desc>The food was removed from the system.</desc>
         </workDone>
+        <research>
+          <start>28/01/2016 16:00</start>
+          <end>28/01/2016 22:00</end>
+          <details>I discovered how to make better food.</details>
+        </research>
       </timeAllocations>
     </task>
     
