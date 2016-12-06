@@ -21,9 +21,10 @@ public:
 	std::vector<TimeAllocation*> GetTAs() { return timeAllocations_; }
 	void SetStart(std::string s) { start_ = s; }
 	void SetDeadline(std::string s) { deadline_ = s; }
-	std::string Task::GetDetails();
 
-	std::string GetTimeSpent();
+	std::string GetTimeSpentFormatted();
+	int Task::GetMinutesSpent();
+	
 private:
 	std::string name_;
 	std::string desc_;

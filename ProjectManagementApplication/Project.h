@@ -30,6 +30,8 @@ public:
 	void SetStart(std::string s) { start_ = s; }
 
 	void SetDeadline(std::string s) { deadline_ = s; }
+
+	std::string Project::GetTimeSpentFormatted();
 };
 
 std::ostream &operator<<(std::ostream &output, Project p);

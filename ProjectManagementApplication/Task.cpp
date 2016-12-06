@@ -11,13 +11,9 @@ Task::~Task()
 {
 }
 
-std::string Task::GetTimeSpent()
+std::string Task::GetTimeSpentFormatted()
 {
-	int minutesSpent = 0;
-	for (TimeAllocation* ta : timeAllocations_)
-	{
-		minutesSpent += ta->GetTimeSpent();
-	}
+	int minutesSpent = GetMinutesSpent();
 
 	int minute, hour, day, month, year;
 
@@ -36,10 +32,21 @@ std::string Task::GetTimeSpent()
 	return temp.str();
 }
 
+int Task::GetMinutesSpent()
+{
+	int minutesSpent = 0;
+	for (TimeAllocation* ta : timeAllocations_)
+	{
+		minutesSpent += ta->GetTimeSpent();
+	}
+
+	return minutesSpent;
+}
+
 std::ostream &operator<<(std::ostream &output, Task t)
 {
 	output << "  >Task Name: " << t.GetName() << "\n";
-	output << "  >" << t.GetTimeSpent() << "\n";
+	output << "  >" << t.GetTimeSpentFormatted() << "\n";
 	output << "  >Time Allocations:\n";
 	for (TimeAllocation* pT : t.GetTAs())
 	{
