@@ -32,3 +32,5 @@ public:
 	void SetDeadline(std::string s) { deadline_ = s; }
 };
 
+std::ostream &operator<<(std::ostream &output, Project p);
+

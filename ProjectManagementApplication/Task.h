@@ -20,6 +20,7 @@ public:
 	std::vector<TimeAllocation*> GetTAs() { return timeAllocations_; }
 	void SetStart(std::string s) { start_ = s; }
 	void SetDeadline(std::string s) { deadline_ = s; }
+	std::string Task::GetDetails();
 
 	std::string GetTimeSpent();
 private:
@@ -29,4 +30,6 @@ private:
 	DateTime deadline_;
 	std::vector<TimeAllocation*> timeAllocations_;
 };
+
+std::ostream &operator<<(std::ostream &output, Task t);
 

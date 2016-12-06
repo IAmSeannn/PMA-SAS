@@ -35,3 +35,15 @@ std::string Task::GetTimeSpent()
 	temp << "Time Worked On Task: Years: " << year << " Months: " << month << " Days: " << day << " Hours: " << hour << " Minutes: " << minute;
 	return temp.str();
 }
+
+std::ostream &operator<<(std::ostream &output, Task t)
+{
+	output << "  >Task Name: " << t.GetName() << "\n";
+	output << "  >" << t.GetTimeSpent() << "\n";
+	output << "  >Time Allocations:\n";
+	for (TimeAllocation* pT : t.GetTAs())
+	{
+		output << pT << "\n";
+	}
+	return output;
+}
