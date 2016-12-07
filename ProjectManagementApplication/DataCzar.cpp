@@ -1,19 +1,29 @@
 #include "DataCzar.h"
 
-DataCzar::DataCzar(std::string path)
+DataCzar::DataCzar()
 {
-	LoadInXML(path);
 }
 
-void DataCzar::LoadInXML(std::string path)
+tinyxml2::XMLError DataCzar::SetUp(std::string path)
 {
+	return LoadInXML(path);
+}
+
+tinyxml2::XMLError DataCzar::LoadInXML(std::string path)
+{
+
 	//load in file and get pointer to root
 	tinyxml2::XMLDocument xmlDoc;
-	xmlDoc.LoadFile("testing.xml");
-	tinyxml2::XMLNode * pRoot = xmlDoc.FirstChild();
+	tinyxml2::XMLError success;
+	success = xmlDoc.LoadFile(path.c_str());
+	if (success == tinyxml2::XML_SUCCESS)
+	{
+		tinyxml2::XMLNode * pRoot = xmlDoc.FirstChild();
 
-	//load projects using root
-	LoadInProjects(pRoot);
+		//load projects using root
+		LoadInProjects(pRoot);
+	}
+	return success;
 }
 
 void DataCzar::LoadInProjects(tinyxml2::XMLNode * pRoot)
