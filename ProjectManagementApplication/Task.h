@@ -8,6 +8,7 @@
 #include "WorkDone.h"
 #include "Research.h"
 #include <iostream>
+#include "RuntimeMenu.h"
 
 class Task
 {
@@ -20,9 +21,10 @@ public:
 	void SetTAs(std::vector<TimeAllocation*> ta) { timeAllocations_ = ta; }
 	std::vector<TimeAllocation*> GetTAs() { return timeAllocations_; }
 	void SetStart(std::string s) { start_ = s; }
+	std::string GetStart() { return start_.getFormatted(); }
 	void SetDeadline(std::string s) { deadline_ = s; }
+	std::string GetDeadline() { return deadline_.getFormatted(); }
 
-	std::string GetTimeSpentFormatted();
 	int Task::GetMinutesSpent();
 	
 private:

@@ -34,7 +34,16 @@ void CommandLoadXMLFIle(DataCzar &Data)
 
 void CommandLoadDisplayData(DataCzar &Data)
 {
-
+	const int count = Data.GetProjects().size();
+	int current = 1;
+	for (Project p : Data.GetProjects())
+	{
+		RuntimeMenu::DisplayTitle();
+		std::cout << "Project " << current++ << " of " << count << "\n";
+		std::cout << p;
+		std::cin.get();
+		std::cin.get();
+	}
 }
 
 void CommandLoadMainMenu(DataCzar &Data)

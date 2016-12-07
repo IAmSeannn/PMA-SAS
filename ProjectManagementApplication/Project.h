@@ -28,10 +28,12 @@ public:
 	void SetTasks(std::vector<Task> t) { Tasks = t; }
 
 	void SetStart(std::string s) { start_ = s; }
+	std::string GetStart() { return start_.getFormatted(); }
 
 	void SetDeadline(std::string s) { deadline_ = s; }
+	std::string GetDeadline() { return deadline_.getFormatted(); }
 
-	std::string Project::GetTimeSpentFormatted();
+	int Project::GetMinutesSpent();
 };
 
 std::ostream &operator<<(std::ostream &output, Project p);

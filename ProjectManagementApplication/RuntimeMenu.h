@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <sstream>
 class RuntimeMenu
 {
 public:
@@ -8,6 +9,8 @@ public:
 
 	static void DisplayMainMenu();
 	static void DisplayLoadXMLMenu();
-	static void DisplayData();
+	static void DisplayTitle();
+	static std::string TurnIntoSubtitle(std::string s, std::string spacer);
+	static std::string GetTimeSpentString(int minutesSpent, std::string spacer);
 };
 

@@ -13,6 +13,7 @@ public:
 protected:
 	DateTime start_;
 	DateTime end_;
+	std::string spacer = "   >";
 };
 
 std::ostream &operator<<(std::ostream &output, TimeAllocation *ta);

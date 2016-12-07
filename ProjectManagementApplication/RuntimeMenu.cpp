@@ -1,13 +1,5 @@
 #include "RuntimeMenu.h"
 
-void DisplayTitle()
-{
-	system("CLS");
-	std::cout << "------------------------------------------\n";
-	std::cout << "   Super Project Management Program 1.0\n";
-	std::cout << "------------------------------------------\n";
-}
-
 RuntimeMenu::RuntimeMenu()
 {
 }
@@ -42,7 +34,73 @@ void RuntimeMenu::DisplayLoadXMLMenu()
 	std::cout << "Please input the path of the file you wish to load:\n";
 }
 
-void RuntimeMenu::DisplayData()
+void RuntimeMenu::DisplayTitle()
 {
+	system("CLS");
+	std::cout << "------------------------------------------\n";
+	std::cout << "   Super Project Management Program 1.0\n";
+	std::cout << "------------------------------------------\n";
+}
 
+std::string RuntimeMenu::TurnIntoSubtitle(std::string s, std::string spacer)
+{
+	std::stringstream stream;
+	//first line
+	stream << spacer;
+	for (int i = 0; i < s.length(); i++)
+	{
+		stream << "-";
+	}
+	stream << "\n";
+
+	stream << spacer << s << "\n";
+	stream << spacer;
+	//second line
+	for (int i = 0; i < s.length(); i++)
+	{
+		stream << "-";
+	}
+	stream << "\n";
+
+	return stream.str();
+}
+
+std::string RuntimeMenu::GetTimeSpentString(int minutesSpent, std::string spacer)
+{
+	int minute, hour, day, month, year;
+
+	year = minutesSpent / 518400;
+	minutesSpent = minutesSpent % 518400;
+	month = minutesSpent / 43200;
+	minutesSpent = minutesSpent % 43200;
+	day = minutesSpent / 1440;
+	minutesSpent = minutesSpent % 1440;
+	hour = minutesSpent / 60;
+	minutesSpent = minutesSpent % 60;
+	minute = minutesSpent;
+
+	std::stringstream temp;
+	temp << spacer << "Time Spent: ";
+	if (year > 0)
+	{
+		temp << year << " years ";
+	}
+	if (month > 0)
+	{
+		temp << month << " months ";
+	}
+	if (day > 0)
+	{
+		temp << day << " days ";
+	}
+	if (hour > 0)
+	{
+		temp << hour << " hours ";
+	}
+	if (minute > 0)
+	{
+		temp << minute << " minutes";
+	}
+	temp << "\n";
+	return temp.str();
 }
