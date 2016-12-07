@@ -37,3 +37,8 @@ int DateTime::GetDifferent(DateTime end)
 	temp = (((((((yearDif * 12) + monthDif) * 30) + dayDif) * 25) + hourDif) * 60) + minuteDif;
 	return temp;
 }
+
+const int DateTime::GetTimeInMinutes()
+{
+	return minute + (hour * 60) + (day * 1440) + (month * 43200) + (year * 518400);
+}

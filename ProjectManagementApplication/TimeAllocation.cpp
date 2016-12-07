@@ -15,3 +15,15 @@ std::ostream &operator<<(std::ostream &output, TimeAllocation *ta)
 	output << ta->GetDetails();
 	return output;
 }
+
+bool operator<(TimeAllocation & lhs, TimeAllocation & rhs)
+{
+	if (rhs.start_.GetTimeInMinutes() != lhs.start_.GetTimeInMinutes())
+	{
+		return rhs.start_.GetTimeInMinutes() < lhs.start_.GetTimeInMinutes();
+	}
+	else
+	{
+		return rhs.end_.GetTimeInMinutes() < lhs.end_.GetTimeInMinutes();
+	}
+}
