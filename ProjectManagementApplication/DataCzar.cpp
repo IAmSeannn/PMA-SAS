@@ -4,16 +4,15 @@ DataCzar::DataCzar()
 {
 }
 
-tinyxml2::XMLError DataCzar::SetUp(std::string path)
+tinyxml2::XMLError DataCzar::SetUp(const std::string & path)
 {
 	return LoadInXML(path);
 }
 
 DataCzar * DataCzar::Current;
 
-tinyxml2::XMLError DataCzar::LoadInXML(std::string path)
+tinyxml2::XMLError DataCzar::LoadInXML(const std::string path)
 {
-
 	//load in file and get pointer to root
 	tinyxml2::XMLDocument xmlDoc;
 	tinyxml2::XMLError success;
