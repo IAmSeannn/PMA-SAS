@@ -9,8 +9,8 @@ public:
 	virtual const std::string GetDetails();
 	void SetStart(std::string s) { start_ = s; }
 	void SetEnd(std::string s) { end_ = s; }
-	int GetTimeSpent();
-	friend bool operator<(TimeAllocation & lhs, TimeAllocation & rhs);
+	const int GetTimeSpent() const;
+	friend bool operator<(const TimeAllocation & lhs, const TimeAllocation & rhs);
 
 protected:
 	DateTime start_;

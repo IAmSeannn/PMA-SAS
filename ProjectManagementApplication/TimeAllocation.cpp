@@ -5,7 +5,7 @@ const std::string TimeAllocation::GetDetails()
 	return "------this class shouldnt exist------";
 }
 
-int TimeAllocation::GetTimeSpent()
+const int TimeAllocation::GetTimeSpent() const
 {
 	return start_.GetDifferent(end_);
 }
@@ -16,7 +16,7 @@ std::ostream &operator<<(std::ostream &output, TimeAllocation *ta)
 	return output;
 }
 
-bool operator<(TimeAllocation & lhs, TimeAllocation & rhs)
+bool operator<(const TimeAllocation & lhs, const TimeAllocation & rhs)
 {
 	if (rhs.start_.GetTimeInMinutes() != lhs.start_.GetTimeInMinutes())
 	{

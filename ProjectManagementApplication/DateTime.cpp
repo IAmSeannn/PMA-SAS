@@ -22,7 +22,7 @@ std::string DateTime::getFormatted() const
 	return oss.str();
 }
 
-int DateTime::GetDifferent(DateTime end) 
+const int DateTime::GetDifferent(const DateTime end) const
 {
 	int yearDif, monthDif, dayDif, hourDif, minuteDif;
 
@@ -38,7 +38,7 @@ int DateTime::GetDifferent(DateTime end)
 	return temp;
 }
 
-const int DateTime::GetTimeInMinutes()
+const int DateTime::GetTimeInMinutes() const
 {
 	return minute + (hour * 60) + (day * 1440) + (month * 43200) + (year * 518400);
 }
