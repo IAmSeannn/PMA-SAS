@@ -9,6 +9,8 @@ tinyxml2::XMLError DataCzar::SetUp(std::string path)
 	return LoadInXML(path);
 }
 
+DataCzar * DataCzar::Current;
+
 tinyxml2::XMLError DataCzar::LoadInXML(std::string path)
 {
 

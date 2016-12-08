@@ -9,7 +9,8 @@ class DataCzar
 public:
 	DataCzar();
 	~DataCzar();
-	
+
+	static DataCzar * Current;
 	tinyxml2::XMLError SetUp(std::string path);
 	std::vector<Project> GetProjects() {
 		return Projects;
