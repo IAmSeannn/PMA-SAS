@@ -376,7 +376,7 @@ void DataCzar::SaveToFile()
 					//add it to doc
 					pTimeAllocationSub->InsertEndChild(pElement);
 
-					//ATTENDEES
+					//DESC
 					//create end tag
 					pElement = doc.NewElement("desc");
 					//populate it
@@ -386,11 +386,77 @@ void DataCzar::SaveToFile()
 				}
 				else if (dynamic_cast<BugFix*>(ta))
 				{
+					//create bugfix tag
+					pElement = doc.NewElement("bugFix");
+					//add it to project (parent)
+					pTimeAllocation->InsertEndChild(pElement);
+					//set timeAllocations as parent and add contents
+					pTimeAllocationSub = pElement;
 
+					//START
+					//create start tag
+					pElement = doc.NewElement("start");
+					//populate it
+					pElement->SetText(ta->GetStart().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//END
+					//create end tag
+					pElement = doc.NewElement("end");
+					//populate it
+					pElement->SetText(ta->GetEnd().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//DESC
+					//create end tag
+					pElement = doc.NewElement("desc");
+					//populate it
+					pElement->SetText(dynamic_cast<BugFix*>(ta)->GetDesc().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//ID
+					//create end tag
+					pElement = doc.NewElement("id");
+					//populate it
+					pElement->SetText(dynamic_cast<BugFix*>(ta)->GetID());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
 				}
 				else if (dynamic_cast<Research*>(ta))
 				{
+					//create research tag
+					pElement = doc.NewElement("research");
+					//add it to project (parent)
+					pTimeAllocation->InsertEndChild(pElement);
+					//set timeAllocations as parent and add contents
+					pTimeAllocationSub = pElement;
 
+					//START
+					//create start tag
+					pElement = doc.NewElement("start");
+					//populate it
+					pElement->SetText(ta->GetStart().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//END
+					//create end tag
+					pElement = doc.NewElement("end");
+					//populate it
+					pElement->SetText(ta->GetEnd().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//DESC
+					//create end tag
+					pElement = doc.NewElement("details");
+					//populate it
+					pElement->SetText(dynamic_cast<Research*>(ta)->GetDetails().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
 				}
 			}
 		}
