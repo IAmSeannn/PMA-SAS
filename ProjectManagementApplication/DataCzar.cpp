@@ -1,5 +1,7 @@
 #include "DataCzar.h"
 
+DataCzar * DataCzar::Current;
+
 DataCzar::DataCzar()
 {
 }
@@ -10,8 +12,6 @@ tinyxml2::XMLError DataCzar::SetUp(const std::string & path)
 	Projects.clear();
 	return LoadInXML(path);
 }
-
-DataCzar * DataCzar::Current;
 
 tinyxml2::XMLError DataCzar::LoadInXML(const std::string path)
 {
@@ -25,6 +25,7 @@ tinyxml2::XMLError DataCzar::LoadInXML(const std::string path)
 
 		//load projects using root
 		LoadInProjects(pRoot);
+		DataCzar::Current->path = path;
 	}
 	return success;
 }
@@ -198,4 +199,204 @@ std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 
 DataCzar::~DataCzar()
 {
+}
+
+//clear the file and then save new copy
+
+void DataCzar::SaveToFile()
+{
+	tinyxml2::XMLDocument doc;
+
+	//create pointer to route and add route to doc
+	tinyxml2::XMLNode * pRoot = doc.NewElement("root");
+	doc.InsertFirstChild(pRoot);
+
+	//element
+	tinyxml2::XMLElement * pProject;
+	tinyxml2::XMLElement * pTask;
+	tinyxml2::XMLElement * pTimeAllocation;
+	tinyxml2::XMLElement * pTimeAllocationSub;
+
+	tinyxml2::XMLElement * pElement;
+
+	for (Project p : Current->Projects)
+	{
+		//create project tag
+		pElement = doc.NewElement("project");
+		//add it to root
+		pRoot->InsertEndChild(pElement);
+		//set project as parent and add contents
+		pProject = pElement;
+
+		//NAME
+		//create name tag
+		pElement = doc.NewElement("name");
+		//populate it
+		pElement->SetText(p.GetName().c_str());
+		//add it to doc
+		pProject->InsertEndChild(pElement);
+
+		//DESC
+		//create desc tag
+		pElement = doc.NewElement("desc");
+		//populate it
+		pElement->SetText(p.GetDesc().c_str());
+		//add it to doc
+		pProject->InsertEndChild(pElement);
+
+		//START
+		//create start tag
+		pElement = doc.NewElement("start");
+		//populate it
+		pElement->SetText(p.GetStart().c_str());
+		//add it to doc
+		pProject->InsertEndChild(pElement);
+
+		//END
+		//create end tag
+		pElement = doc.NewElement("end");
+		//populate it
+		pElement->SetText(p.GetDeadline().c_str());
+		//add it to doc
+		pProject->InsertEndChild(pElement);
+
+		for (auto t : p.GetTasks())
+		{
+			//SWITCH TO TASK
+			//create task tag
+			pElement = doc.NewElement("task");
+			//add it to project (parent)
+			pProject->InsertEndChild(pElement);
+			//set task as parent and add contents
+			pTask = pElement;
+
+			//NAME
+			//create name tag
+			pElement = doc.NewElement("name");
+			//populate it
+			pElement->SetText(t.GetName().c_str());
+			//add it to doc
+			pTask->InsertEndChild(pElement);
+
+			//DESC
+			//create desc tag
+			pElement = doc.NewElement("desc");
+			//populate it
+			pElement->SetText(t.GetDesc().c_str());
+			//add it to doc
+			pTask->InsertEndChild(pElement);
+
+			//START
+			//create start tag
+			pElement = doc.NewElement("start");
+			//populate it
+			pElement->SetText(t.GetStart().c_str());
+			//add it to doc
+			pTask->InsertEndChild(pElement);
+
+			//END
+			//create end tag
+			pElement = doc.NewElement("end");
+			//populate it
+			pElement->SetText(t.GetDeadline().c_str());
+			//add it to doc
+			pTask->InsertEndChild(pElement);
+
+			//SWITCH TO TIME ALLOCATIONS
+			//create timealocation tag
+			pElement = doc.NewElement("timeAllocations");
+			//add it to project (parent)
+			pTask->InsertEndChild(pElement);
+			//set timeAllocations as parent and add contents
+			pTimeAllocation = pElement;
+
+			//NOW GO INTO LOOP, FUNNY FORMAT OF TIMEALLOC REQUIRES THIS
+			for (auto ta : t.GetTAs())
+			{
+				//SWITCH TO TIME ALLOCATIONS PART 2
+				//have to find out what kind to make first
+				//gulp
+
+				if (dynamic_cast<Meeting*>(ta))
+				{
+					//create meeting tag
+					pElement = doc.NewElement("meeting");
+					//add it to project (parent)
+					pTimeAllocation->InsertEndChild(pElement);
+					//set timeAllocations as parent and add contents
+					pTimeAllocationSub = pElement;
+
+					//START
+					//create start tag
+					pElement = doc.NewElement("start");
+					//populate it
+					pElement->SetText(ta->GetStart().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//END
+					//create end tag
+					pElement = doc.NewElement("end");
+					//populate it
+					pElement->SetText(ta->GetEnd().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//ATTENDEES
+					//create end tag
+					pElement = doc.NewElement("attendees");
+					//populate it
+					pElement->SetText(dynamic_cast<Meeting*>(ta)->GetAttendees().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+
+				}
+				else if (dynamic_cast<WorkDone*>(ta))
+				{
+					//create workDone tag
+					pElement = doc.NewElement("workDone");
+					//add it to project (parent)
+					pTimeAllocation->InsertEndChild(pElement);
+					//set timeAllocations as parent and add contents
+					pTimeAllocationSub = pElement;
+
+					//START
+					//create start tag
+					pElement = doc.NewElement("start");
+					//populate it
+					pElement->SetText(ta->GetStart().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//END
+					//create end tag
+					pElement = doc.NewElement("end");
+					//populate it
+					pElement->SetText(ta->GetEnd().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//ATTENDEES
+					//create end tag
+					pElement = doc.NewElement("desc");
+					//populate it
+					pElement->SetText(dynamic_cast<WorkDone*>(ta)->GetDesc().c_str());
+					//add it to doc
+					pTimeAllocationSub->InsertEndChild(pElement);
+				}
+				else if (dynamic_cast<BugFix*>(ta))
+				{
+
+				}
+				else if (dynamic_cast<Research*>(ta))
+				{
+
+				}
+			}
+		}
+	}
+
+	//save it all here
+	doc.SaveFile(Current->path.c_str());
+	
 }

@@ -9,6 +9,7 @@ public:
 	const std::string GetDetails() const;
 	void GetInformationForNewClass();
 	void SetAttendees(std::string s) { attendees_ = s; }
+	std::string GetAttendees() { return attendees_; }
 private:
 	std::string attendees_;
 };

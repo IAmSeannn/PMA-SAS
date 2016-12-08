@@ -10,6 +10,8 @@ public:
 	virtual const std::string GetDetails() const = 0;
 	virtual void GetInformationForNewClass() = 0;
 	void SetStart(std::string s) { start_ = s; }
+	std::string GetStart() { return start_.getFormatted(); }
+	std::string GetEnd() { return end_.getFormatted(); }
 	void SetEnd(std::string s) { end_ = s; }
 	const int GetTimeSpent() const;
 	friend bool operator<(const TimeAllocation & lhs, const TimeAllocation & rhs);

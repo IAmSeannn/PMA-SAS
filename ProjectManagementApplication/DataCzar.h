@@ -11,8 +11,10 @@ public:
 	~DataCzar();
 
 	static DataCzar * Current;
+	std::string path;
 
 	tinyxml2::XMLError SetUp(const std::string & path);
+	void SaveToFile();
 	std::vector<Project> & GetProjects() {
 		return Projects;
 	};

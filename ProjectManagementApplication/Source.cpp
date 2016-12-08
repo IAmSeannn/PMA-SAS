@@ -299,6 +299,7 @@ void CommandAddTA(Task * pT)
 
 	//write to file
 	//pain
+	DataCzar::Current->SaveToFile();
 
 	std::cout << "Time Allocation added. Press any key to continue";
 	std::cin.get();
