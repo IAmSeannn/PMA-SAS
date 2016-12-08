@@ -6,6 +6,8 @@ DataCzar::DataCzar()
 
 tinyxml2::XMLError DataCzar::SetUp(const std::string & path)
 {
+	//clean all existing data
+	Projects.clear();
 	return LoadInXML(path);
 }
 
