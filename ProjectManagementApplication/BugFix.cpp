@@ -11,7 +11,7 @@ BugFix::~BugFix()
 {
 }
 
-const std::string BugFix::GetDetails()
+const std::string BugFix::GetDetails() const
 {
 	std::stringstream temp;
 	temp << spacer << "Bug Fix: " << start_.getFormatted() << " - " << end_.getFormatted() << " Description: " << desc_ << " ID: " << id_;

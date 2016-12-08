@@ -6,7 +6,7 @@ class Meeting : public TimeAllocation
 public:
 	Meeting();
 	~Meeting();
-	const std::string GetDetails();
+	const std::string GetDetails() const;
 	void SetAttendees(std::string s) { attendees_ = s; }
 private:
 	std::string attendees_;
