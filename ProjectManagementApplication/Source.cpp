@@ -201,6 +201,7 @@ void CommandLoadMainMenu()
 			break;
 		case 5:
 			responseSuccess = true;
+			return;
 			//quit
 			break;
 		default:
@@ -221,7 +222,4 @@ int main(int argc, char* argv[])
 	DataCzar::Current = new DataCzar();
 
 	CommandLoadMainMenu();
-	
-	std::cin.get();
-	std::cin.get();
 }

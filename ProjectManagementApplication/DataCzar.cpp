@@ -199,5 +199,3 @@ std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 DataCzar::~DataCzar()
 {
 }
-
-
