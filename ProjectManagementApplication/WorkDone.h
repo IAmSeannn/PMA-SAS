@@ -6,6 +6,7 @@ public:
 	WorkDone();
 	~WorkDone();
 	const std::string GetDetails() const;
+	void GetInformationForNewClass();
 	void SetDesc(std::string s) { desc_ = s; }
 private:
 	std::string desc_;

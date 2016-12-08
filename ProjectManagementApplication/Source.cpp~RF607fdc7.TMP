@@ -16,8 +16,6 @@ void CommandSelectProject();
 void CommandSelectTask(Project * pP);
 void CommandAddTA(Task * pT);
 
-void CreateMeeting(Task * pT);
-
 void CommandSortData()
 {
 	RuntimeMenu::DisplayTitle();
@@ -185,7 +183,7 @@ void CommandSelectProject()
 
 	std::cout << "Here are the currently loaded projects:\n";
 
-	for (Project &p : DataCzar::Current->GetProjects())
+	for (Project p : DataCzar::Current->GetProjects())
 	{
 		std::cout << p.GetName() << "\n";
 	}
@@ -194,13 +192,13 @@ void CommandSelectProject()
 
 	std::string input;
 	bool success = false;
-	Project * projectToEdit = nullptr;
+	Project * projectToEdit;
 
 	while (!success)
 	{
-		std::getline(std::cin, input);
+		std::cin >> input;
 
-		for (Project &p : DataCzar::Current->GetProjects())
+		for (Project p : DataCzar::Current->GetProjects())
 		{
 			if (p.GetName() == input)
 			{
@@ -224,7 +222,7 @@ void CommandSelectTask(Project * pP)
 
 	std::cout << "Here are the currently loaded tasks:\n";
 
-	for (Task &t : pP->GetTasks())
+	for (Task t : pP->GetTasks())
 	{
 		std::cout << t.GetName() << "\n";
 	}
@@ -233,13 +231,13 @@ void CommandSelectTask(Project * pP)
 
 	std::string input;
 	bool success = false;
-	Task * taskToEdit = nullptr;
+	Task * taskToEdit;
 
 	while (!success)
 	{
-		std::getline(std::cin, input);
+		std::cin >> input;
 
-		for (Task &t : pP->GetTasks())
+		for (Task t : pP->GetTasks())
 		{
 			if (t.GetName() == input)
 			{
@@ -247,6 +245,7 @@ void CommandSelectTask(Project * pP)
 				taskToEdit = &t;
 			}
 		}
+
 		if (!success)
 		{
 			std::cout << "Task not recognised, please try again. \n";
@@ -266,29 +265,22 @@ void CommandAddTA(Task * pT)
 	std::cout << "3. Bug Fix\n";
 	std::cout << "4. Research\n";
 
-	int input = 0;
+	int input;
 	bool success = false;
 	while (!success)
 	{
-		std::cin >> input;
-
 		switch (input)
 		{
 		case 1:
-			success = true;
 			//meeting
-			CreateMeeting(pT);
 			break;
 		case 2:
-			success = true;
 			//work done
 			break;
-		case 3:
-			success = true;
+		case 3: 
 			//bug fix
 			break;
 		case 4:
-			success = true;
 			//research
 			break;
 		default:
@@ -296,21 +288,6 @@ void CommandAddTA(Task * pT)
 			break;
 		}
 	}
-
-	//write to file
-	//pain
-
-	std::cout << "Time Allocation added. Press any key to continue";
-	std::cin.get();
-
-	CommandLoadMainMenu();
-}
-
-void CreateMeeting(Task * pT)
-{
-	Meeting * m = new Meeting();
-	m->GetInformationForNewClass();
-	pT->GetTAs().push_back(m);
 }
 
 void CommandLoadMainMenu()

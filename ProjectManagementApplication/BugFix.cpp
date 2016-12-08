@@ -17,3 +17,9 @@ const std::string BugFix::GetDetails() const
 	temp << spacer << "Bug Fix: " << start_.getFormatted() << " - " << end_.getFormatted() << " Description: " << desc_ << " ID: " << id_;
 	return temp.str();
 }
+
+void BugFix::GetInformationForNewClass()
+{
+
+}
+

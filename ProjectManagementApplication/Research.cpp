@@ -17,3 +17,8 @@ const std::string Research::GetDetails() const
 	temp << spacer << "Research: " << start_.getFormatted() << " - " << end_.getFormatted() << " Topic: " << details_;
 	return temp.str();
 }
+
+void Research::GetInformationForNewClass()
+{
+
+}

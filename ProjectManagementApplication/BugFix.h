@@ -6,6 +6,7 @@ public:
 	BugFix();
 	~BugFix();
 	const std::string GetDetails() const;
+	void GetInformationForNewClass();
 	void SetDesc(std::string s) { desc_ = s; }
 	void SetID(int i) { id_ = i; }
 private:

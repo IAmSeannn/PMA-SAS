@@ -17,3 +17,8 @@ const std::string WorkDone::GetDetails() const
 	temp << spacer << "Work Done: " << start_.getFormatted() << " - " << end_.getFormatted() << " Description: " << desc_;
 	return temp.str();
 }
+
+void WorkDone::GetInformationForNewClass()
+{
+
+}
