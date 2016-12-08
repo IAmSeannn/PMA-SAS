@@ -7,10 +7,8 @@ class DataDisplayer
 public:
 	DataDisplayer();
 	~DataDisplayer();
-	static void PrintTest(DataCzar data);
+	static void PrintTest();
 
 private:
-	static void PrintPageLine();
-	static void PrintSubLine();
 };
 

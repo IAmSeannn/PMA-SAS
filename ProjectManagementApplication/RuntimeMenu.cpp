@@ -1,13 +1,7 @@
 #include "RuntimeMenu.h"
 
-RuntimeMenu::RuntimeMenu()
-{
-}
-
-
-RuntimeMenu::~RuntimeMenu()
-{
-}
+RuntimeMenu::RuntimeMenu() {}
+RuntimeMenu::~RuntimeMenu() {}
 
 void RuntimeMenu::DisplayMainMenu()
 {
