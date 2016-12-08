@@ -16,15 +16,16 @@ private:
 
 public:
 	Project() {};
-	Project(std::string name, std::string desc, std::string start, std::string deadline);
+	Project::Project(std::string name, std::string desc, std::string start, std::string deadline)
+		: name_(name), desc_(desc), start_(start), deadline_(deadline) {};
 	
-	std::string GetName() { return name_; };
+	std::string & GetName() { return name_; };
 	void SetName(std::string s) { name_ = s; }
 
-	std::string GetDesc() { return desc_; }
+	std::string & GetDesc() { return desc_; }
 	void SetDesc(std::string s) { desc_ = s; }
 
-	std::vector<Task> GetTasks() { return Tasks; }
+	std::vector<Task> & GetTasks() { return Tasks; }
 	void SetTasks(std::vector<Task> t) { Tasks = t; }
 
 	void SetStart(std::string s) { start_ = s; }
@@ -33,7 +34,7 @@ public:
 	void SetDeadline(std::string s) { deadline_ = s; }
 	std::string GetDeadline() { return deadline_.getFormatted(); }
 
-	int Project::GetMinutesSpent();
+	const int Project::GetMinutesSpent();
 };
 
 std::ostream &operator<<(std::ostream &output, Project p);

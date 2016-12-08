@@ -1,11 +1,6 @@
 #include "Project.h"
 #include "RuntimeMenu.h"
 
-Project::Project(std::string name, std::string desc, std::string start, std::string deadline)
-	: name_(name), desc_(desc), start_(start), deadline_(deadline)
-{
-}
-
 std::ostream &operator<<(std::ostream &output, Project p)
 {
 	std::string space = "";
@@ -25,7 +20,7 @@ std::ostream &operator<<(std::ostream &output, Project p)
 	return output;
 }
 
-int Project::GetMinutesSpent()
+const int Project::GetMinutesSpent()
 {
 	int minutesSpent = 0;
 
