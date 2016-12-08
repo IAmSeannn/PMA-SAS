@@ -1,17 +1,10 @@
 #include "Task.h"
 
+Task::Task(){}
 
+Task::~Task(){}
 
-Task::Task()
-{
-}
-
-
-Task::~Task()
-{
-}
-
-int Task::GetMinutesSpent()
+const int Task::GetMinutesSpent()
 {
 	int minutesSpent = 0;
 	for (TimeAllocation* ta : timeAllocations_)
@@ -22,13 +15,13 @@ int Task::GetMinutesSpent()
 	return minutesSpent;
 }
 
-std::ostream &operator<<(std::ostream &output, Task t)
+std::ostream &operator<<(std::ostream &output, Task & t)
 {
 	std::string space = "  ";
-	output << RuntimeMenu::TurnIntoSubtitle(t.GetName(), space);
+	output << RuntimeMenu::TurnIntoSubtitle(t.name_, space);
 	output << RuntimeMenu::GetTimeSpentString(t.GetMinutesSpent(), space);
-	output << space << "Started: " << t.GetStart() << "\n";
-	output << space << "Deadline: " << t.GetDeadline() << "\n";
+	output << space << "Started: " << t.start_.getFormatted() << "\n";
+	output << space << "Deadline: " << t.deadline_.getFormatted() << "\n";
 	output << space << "Time Allocations:\n";
 	for (TimeAllocation* pT : t.GetTAs())
 	{
