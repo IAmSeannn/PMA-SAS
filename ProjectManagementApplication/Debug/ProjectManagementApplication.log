@@ -1,16 +1,16 @@
-﻿  TimeAllocation.cpp
-  Task.cpp
-  DateTime.cpp
+﻿  DataCzar.cpp
   Generating Code...
   Compiling...
   WorkDone.cpp
-  Source.cpp
+  TimeAllocation.cpp
   Research.cpp
-  Project.cpp
   Meeting.cpp
-  DataDisplayer.cpp
-  DataCzar.cpp
   BugFix.cpp
   Generating Code...
+  Skipping... (no relevant changes detected)
+  Task.cpp
+  Source.cpp
+  Project.cpp
+  DataDisplayer.cpp
   ProjectManagementApplication.vcxproj -> C:\Users\iamse\documents\visual studio 2015\Projects\ProjectManagementApplication\Debug\ProjectManagementApplication.exe
   ProjectManagementApplication.vcxproj -> C:\Users\iamse\documents\visual studio 2015\Projects\ProjectManagementApplication\Debug\ProjectManagementApplication.pdb (Full PDB)

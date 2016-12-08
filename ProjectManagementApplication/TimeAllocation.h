@@ -6,7 +6,7 @@
 class TimeAllocation
 {
 public:
-	virtual const std::string GetDetails();
+	virtual const std::string GetDetails() const = 0;
 	void SetStart(std::string s) { start_ = s; }
 	void SetEnd(std::string s) { end_ = s; }
 	const int GetTimeSpent() const;
