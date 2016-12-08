@@ -13,7 +13,7 @@ public:
 	static DataCzar * Current;
 
 	tinyxml2::XMLError SetUp(const std::string & path);
-	const std::vector<Project> & GetProjects() {
+	std::vector<Project> & GetProjects() {
 		return Projects;
 	};
 private:

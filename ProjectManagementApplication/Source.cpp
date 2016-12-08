@@ -9,7 +9,7 @@ void CommandLoadXMLFIle();
 void CommandLoadMainMenu();
 void CommandLoadDisplayData();
 void CommandSortData();
-void CommandSortTAs(int order); //0 for assending, 1 for desending
+void CommandSortTAs(bool order); //0 for assending, 1 for desending
 
 void CommandSortData()
 {
@@ -29,12 +29,12 @@ void CommandSortData()
 		case 1:
 			responseSuccess = true;
 			//assending
-			CommandSortTAs(0);
+			CommandSortTAs(true);
 			break;
 		case 2:
 			responseSuccess = true;
 			//desending
-			CommandSortTAs(1);
+			CommandSortTAs(false);
 			break;
 		default:
 			std::cout << "Command not recognised, please try again.\n";
@@ -48,14 +48,19 @@ const bool IsGreaterThan(TimeAllocation* lhs, TimeAllocation* rhs)
 	return (*lhs) < (*rhs);
 }
 
-void CommandSortTAs(int order) //0 for assending, 1 for desending
+void CommandSortTAs(bool order) //true for assending, false for desending
 {
-	for (Project p : DataCzar::Current->GetProjects())
+	for (Project &p : DataCzar::Current->GetProjects())
 	{
-		for (Task t : p.GetTasks())
+		for (Task &t : p.GetTasks())
 		{
-			std::vector<TimeAllocation*> & test = t.GetTAs();
-			std::sort(test.begin(), test.end(), IsGreaterThan);
+			std::sort(t.GetTAs().begin(), t.GetTAs().end(), IsGreaterThan);
+
+			if (order)
+			{
+				//reverse the vector
+				std::reverse(t.GetTAs().begin(), t.GetTAs().end());
+			}
 		}
 	}
 
