@@ -35,18 +35,22 @@ void CommandSortData()
 		switch (response)
 		{
 		case 'y':
-			//CommandLoadDisplayData();
+		case 'Y':
 			CommandSortTAs(true);
+			success = true;
 			break;
 		case 'n':
+		case 'N':
 			CommandSortTAs(false);
-			//CommandDisplayTAsOnly();
+			success = true;
 			break;
 		default:
 			std::cout << "That command is no recognised, please try again.\n";
 			break;
 		}
 	}
+
+	CommandLoadMainMenu();
 }
 
 const bool IsGreaterThan(TimeAllocation* lhs, TimeAllocation* rhs)
@@ -69,9 +73,6 @@ void CommandSortTAs(bool full) //true for assending, false for desending
 		switch (response)
 		{
 		case 1:
-			responseSuccess = true;
-			//assending
-			break;
 		case 2:
 			responseSuccess = true;
 			//desending
@@ -119,6 +120,8 @@ void CommandSortTAs(bool full) //true for assending, false for desending
 			//reverse the vector
 			std::reverse(master.begin(), master.end());
 		}
+
+		RuntimeMenu::DisplayTitle();
 
 		//then print them all
 		for (TimeAllocation* ta : master)
@@ -175,6 +178,8 @@ void CommandLoadDisplayData()
 		std::cin.get();
 		std::cin.get();
 	}
+
+	CommandLoadMainMenu();
 }
 
 void CommandEditData()
