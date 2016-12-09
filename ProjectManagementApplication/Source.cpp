@@ -17,6 +17,9 @@ void CommandSelectTask(Project * pP);
 void CommandAddTA(Task * pT);
 
 void CreateMeeting(Task * pT);
+void CreateWorkDone(Task * pT);
+void CreateBugFix(Task * pT);
+void CreateResearch(Task * pT);
 
 void CommandSortData()
 {
@@ -282,14 +285,17 @@ void CommandAddTA(Task * pT)
 		case 2:
 			success = true;
 			//work done
+			CreateWorkDone(pT);
 			break;
 		case 3:
 			success = true;
 			//bug fix
+			CreateBugFix(pT);
 			break;
 		case 4:
 			success = true;
 			//research
+			CreateResearch(pT);
 			break;
 		default:
 			std::cout << "Command not recognised, please try again.\n";
@@ -312,6 +318,27 @@ void CreateMeeting(Task * pT)
 	Meeting * m = new Meeting();
 	m->GetInformationForNewClass();
 	pT->GetTAs().push_back(m);
+}
+
+void CreateWorkDone(Task * pT)
+{
+	WorkDone * w = new WorkDone();
+	w->GetInformationForNewClass();
+	pT->GetTAs().push_back(w);
+}
+
+void CreateBugFix(Task * pT)
+{
+	BugFix * b = new BugFix();
+	b->GetInformationForNewClass();
+	pT->GetTAs().push_back(b);
+}
+
+void CreateResearch(Task * pT)
+{
+	Research * r = new Research();
+	r->GetInformationForNewClass();
+	pT->GetTAs().push_back(r);
 }
 
 void CommandLoadMainMenu()

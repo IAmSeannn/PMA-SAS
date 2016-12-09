@@ -1,69 +1,71 @@
-﻿<root>
-  <project>
-    <name>Breakfast</name>
-    <desc>A Project plan for breakfast</desc>
-    <start>27/01/2016 00:00</start>
-    <end>27/02/2016 00:00</end>
-    
-    <task>
-      <name>Create Food</name>
-      <desc>You must first make food before you can serve it.</desc>
-      <start>27/01/2016 04:00</start>
-      <end>27/01/2016 12:00</end>
-      <timeAllocations>
-        <meeting>
-          <start>27/01/2016 04:00</start>
-          <end>27/01/2016 06:00</end>
-          <attendees>Me, the ingredients.</attendees>
-        </meeting>
-        <workDone>
-          <start>27/01/2016 010:00</start>
-          <end>27/01/2016 12:00</end>
-          <desc>We made the food, killed all the ingredients.. Pain.</desc>
-        </workDone>
-      </timeAllocations>
-    </task>
-
-    <task>
-      <name>Eat food</name>
-      <desc>Now eat the great food you created.</desc>
-      <start>28/01/2016 04:00</start>
-      <end>28/01/2016 12:00</end>
-      <timeAllocations>
-        <meeting>
-          <start>28/01/2016 06:00</start>
-          <end>28/01/2016 10:00</end>
-          <attendees>Me, the excellent meal.</attendees>
-        </meeting>
-        <workDone>
-          <start>28/01/2016 10:00</start>
-          <end>28/01/2016 12:00</end>
-          <desc>The food was devoured.</desc>
-        </workDone>
-        <meeting>
-          <start>28/01/2016 08:00</start>
-          <end>28/01/2016 12:00</end>
-          <attendees>Me, the toilet.</attendees>
-        </meeting>
-        <workDone>
-          <start>28/01/2016 16:00</start>
-          <end>28/01/2016 20:00</end>
-          <desc>The food was removed from the system.</desc>
-        </workDone>
-        <research>
-          <start>28/01/2016 12:00</start>
-          <end>28/01/2016 22:00</end>
-          <details>I discovered how to make better food.</details>
-        </research>
-      </timeAllocations>
-    </task>
-    
-  </project>
-
-  <project>
-    <name>LUNCH TIME!</name>
-    <start>28/01/2016 08:00</start>
-    <end>28/01/2016 12:00</end>
-    <desc>A plan for lunchtime, incomplete.</desc>
-  </project>
+<root>
+    <project>
+        <name>Breakfast</name>
+        <desc>A Project plan for breakfast</desc>
+        <start>27/01/2016 00:00</start>
+        <end>27/02/2016 00:00</end>
+        <task>
+            <name>Create Food</name>
+            <desc>You must first make food before you can serve it.</desc>
+            <start>27/01/2016 04:00</start>
+            <end>27/01/2016 12:00</end>
+            <timeAllocations>
+                <meeting>
+                    <start>27/01/2016 04:00</start>
+                    <end>27/01/2016 06:00</end>
+                    <attendees>Me, the ingredients.</attendees>
+                </meeting>
+                <workDone>
+                    <start>27/01/2016 10:00</start>
+                    <end>27/01/2016 12:00</end>
+                    <desc>We made the food, killed all the ingredients.. Pain.</desc>
+                </workDone>
+                <bugFix>
+                    <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
+                    <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
+                    <desc>i added too much salt</desc>
+                    <id>27</id>
+                </bugFix>
+            </timeAllocations>
+        </task>
+        <task>
+            <name>Eat food</name>
+            <desc>Now eat the great food you created.</desc>
+            <start>28/01/2016 04:00</start>
+            <end>28/01/2016 12:00</end>
+            <timeAllocations>
+                <meeting>
+                    <start>28/01/2016 06:00</start>
+                    <end>28/01/2016 10:00</end>
+                    <attendees>Me, the excellent meal.</attendees>
+                </meeting>
+                <meeting>
+                    <start>28/01/2016 08:00</start>
+                    <end>28/01/2016 12:00</end>
+                    <attendees>Me, the toilet.</attendees>
+                </meeting>
+                <workDone>
+                    <start>28/01/2016 10:00</start>
+                    <end>28/01/2016 12:00</end>
+                    <desc>The food was devoured.</desc>
+                </workDone>
+                <workDone>
+                    <start>28/01/2016 16:00</start>
+                    <end>28/01/2016 20:00</end>
+                    <desc>The food was removed from the system.</desc>
+                </workDone>
+                <research>
+                    <start>28/01/2016 12:00</start>
+                    <end>28/01/2016 22:00</end>
+                    <details>I discovered how to make better food.</details>
+                </research>
+            </timeAllocations>
+        </task>
+    </project>
+    <project>
+        <name>LUNCH TIME!</name>
+        <desc>A plan for lunchtime, incomplete.</desc>
+        <start>28/01/2016 08:00</start>
+        <end>28/01/2016 12:00</end>
+    </project>
 </root>
