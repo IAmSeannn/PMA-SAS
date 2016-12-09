@@ -206,6 +206,7 @@ void CommandSelectProject()
 
 	while (!success)
 	{
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::getline(std::cin, input);
 
 		for (Project &p : DataCzar::Current->GetProjects())
