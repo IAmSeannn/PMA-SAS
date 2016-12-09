@@ -48,9 +48,6 @@
     <ClCompile Include="DataCzar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DataDisplayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Research.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -87,9 +84,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DataCzar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DataDisplayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Research.h">
