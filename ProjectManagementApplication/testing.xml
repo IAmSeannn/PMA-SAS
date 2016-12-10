@@ -10,12 +10,6 @@
             <start>27/01/2016 04:00</start>
             <end>27/01/2016 12:00</end>
             <timeAllocations>
-                <bugFix>
-                    <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
-                    <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
-                    <desc>i added too much salt</desc>
-                    <id>27</id>
-                </bugFix>
                 <meeting>
                     <start>27/01/2016 04:00</start>
                     <end>27/01/2016 06:00</end>
@@ -26,12 +20,6 @@
                     <end>27/01/2016 12:00</end>
                     <desc>We made the food, killed all the ingredients.. Pain.</desc>
                 </workDone>
-                <bugFix>
-                    <start>15/15/1515 15:14</start>
-                    <end>15/15/15151515 -858993460:-858993460</end>
-                    <desc>cin get line is a pile of ...</desc>
-                    <id>87</id>
-                </bugFix>
             </timeAllocations>
         </task>
         <task>

@@ -52,7 +52,7 @@ void CommandSortData()
 	CommandLoadMainMenu();
 }
 
-const bool IsGreaterThan(TimeAllocation* lhs, TimeAllocation* rhs)
+const bool IsGreaterThan(std::shared_ptr<TimeAllocation> lhs, std::shared_ptr<TimeAllocation>rhs)
 {
 	return (*lhs) < (*rhs);
 }
@@ -102,7 +102,7 @@ void CommandSortTAs(bool full) //true for assending, false for desending
 	}
 	else
 	{
-		std::vector<TimeAllocation*> master;
+		std::vector<std::shared_ptr<TimeAllocation>> master;
 		//add all TAs in entire dataczar
 		for (Project &p : DataCzar::Current->GetProjects())
 		{
@@ -123,7 +123,7 @@ void CommandSortTAs(bool full) //true for assending, false for desending
 		RuntimeMenu::DisplayTitle();
 
 		//then print them all
-		for (TimeAllocation* ta : master)
+		for (std::shared_ptr<TimeAllocation> ta : master)
 		{
 			std::cout << ta << "\n";
 		}
@@ -320,28 +320,28 @@ void CommandAddTA(Task * pT)
 
 void CreateMeeting(Task * pT)
 {
-	Meeting * m = new Meeting();
+	std::shared_ptr<Meeting> m(new Meeting);
 	m->SetUpNewClassFromUser();
 	pT->GetTAs().push_back(m);
 }
 
 void CreateWorkDone(Task * pT)
 {
-	WorkDone * w = new WorkDone();
+	std::shared_ptr<WorkDone> w(new WorkDone);
 	w->SetUpNewClassFromUser();
 	pT->GetTAs().push_back(w);
 }
 
 void CreateBugFix(Task * pT)
 {
-	BugFix * b = new BugFix();
+	std::shared_ptr<BugFix> b(new BugFix);
 	b->SetUpNewClassFromUser();
 	pT->GetTAs().push_back(b);
 }
 
 void CreateResearch(Task * pT)
 {
-	Research * r = new Research();
+	std::shared_ptr<Research> r(new Research);
 	r->SetUpNewClassFromUser();
 	pT->GetTAs().push_back(r);
 }

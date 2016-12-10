@@ -5,7 +5,7 @@ const int TimeAllocation::GetTimeSpent() const
 	return start_.GetDifferent(end_);
 }
 
-std::ostream &operator<<(std::ostream &output, TimeAllocation *ta)
+std::ostream &operator<<(std::ostream &output, std::shared_ptr<TimeAllocation> ta)
 {
 	output << ta->GetDetails();
 	return output;

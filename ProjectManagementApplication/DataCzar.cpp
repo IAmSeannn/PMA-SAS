@@ -98,16 +98,16 @@ std::vector<Task> DataCzar::LoadInTasks(tinyxml2::XMLNode * pCurrentProject)
 	return temp;
 }
 
-std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
+std::vector<std::shared_ptr<TimeAllocation>> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 {
 	//temp vector to store TAs as added
-	std::vector<TimeAllocation*> temp;
+	std::vector<std::shared_ptr<TimeAllocation>> temp;
 	//loop through all TAs, 3 times, once for each type
 	//first MEETING
 	tinyxml2::XMLElement * pTAHeader = pTARoot->FirstChildElement("meeting");
 	while (pTAHeader != nullptr)
 	{
-		Meeting *m = new Meeting();
+		std::shared_ptr<Meeting> m(new Meeting);
 
 		//get element of attendees
 		tinyxml2::XMLElement * pMeetingElement = pTAHeader->FirstChildElement("attendees");
@@ -128,7 +128,7 @@ std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 	pTAHeader = pTARoot->FirstChildElement("workDone");
 	while (pTAHeader != nullptr)
 	{
-		WorkDone *w = new WorkDone();
+		std::shared_ptr<WorkDone> w(new WorkDone);
 
 		//get element of desc
 		tinyxml2::XMLElement * pWorkDoneElement = pTAHeader->FirstChildElement("desc");
@@ -149,7 +149,7 @@ std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 	pTAHeader = pTARoot->FirstChildElement("bugFix");
 	while (pTAHeader != nullptr)
 	{
-		BugFix *b = new BugFix();
+		std::shared_ptr<BugFix> b(new BugFix);
 
 		//get element of desc
 		tinyxml2::XMLElement * pBugFixElement = pTAHeader->FirstChildElement("desc");
@@ -175,7 +175,7 @@ std::vector<TimeAllocation*> DataCzar::LoadInTAs(tinyxml2::XMLNode * pTARoot)
 	pTAHeader = pTARoot->FirstChildElement("research");
 	while (pTAHeader != nullptr)
 	{
-		 Research *r = new Research();
+		 std::shared_ptr<Research> r(new Research);
 
 		//get element of desc
 		tinyxml2::XMLElement * pBugFixElement = pTAHeader->FirstChildElement("details");
@@ -317,7 +317,7 @@ void DataCzar::SaveToFile()
 				//have to find out what kind to make first
 				//gulp
 
-				if (dynamic_cast<Meeting*>(ta))
+				if (std::dynamic_pointer_cast<Meeting>(ta))
 				{
 					//create meeting tag
 					pElement = doc.NewElement("meeting");
@@ -346,12 +346,12 @@ void DataCzar::SaveToFile()
 					//create end tag
 					pElement = doc.NewElement("attendees");
 					//populate it
-					pElement->SetText(dynamic_cast<Meeting*>(ta)->GetAttendees().c_str());
+					pElement->SetText(std::dynamic_pointer_cast<Meeting>(ta)->GetAttendees().c_str());
 					//add it to doc
 					pTimeAllocationSub->InsertEndChild(pElement);
 
 				}
-				else if (dynamic_cast<WorkDone*>(ta))
+				else if (std::dynamic_pointer_cast<WorkDone>(ta))
 				{
 					//create workDone tag
 					pElement = doc.NewElement("workDone");
@@ -380,11 +380,11 @@ void DataCzar::SaveToFile()
 					//create end tag
 					pElement = doc.NewElement("desc");
 					//populate it
-					pElement->SetText(dynamic_cast<WorkDone*>(ta)->GetDesc().c_str());
+					pElement->SetText(std::dynamic_pointer_cast<WorkDone>(ta)->GetDesc().c_str());
 					//add it to doc
 					pTimeAllocationSub->InsertEndChild(pElement);
 				}
-				else if (dynamic_cast<BugFix*>(ta))
+				else if (std::dynamic_pointer_cast<BugFix>(ta))
 				{
 					//create bugfix tag
 					pElement = doc.NewElement("bugFix");
@@ -413,7 +413,7 @@ void DataCzar::SaveToFile()
 					//create end tag
 					pElement = doc.NewElement("desc");
 					//populate it
-					pElement->SetText(dynamic_cast<BugFix*>(ta)->GetDesc().c_str());
+					pElement->SetText(std::dynamic_pointer_cast<BugFix>(ta)->GetDesc().c_str());
 					//add it to doc
 					pTimeAllocationSub->InsertEndChild(pElement);
 
@@ -421,11 +421,11 @@ void DataCzar::SaveToFile()
 					//create end tag
 					pElement = doc.NewElement("id");
 					//populate it
-					pElement->SetText(dynamic_cast<BugFix*>(ta)->GetID());
+					pElement->SetText(std::dynamic_pointer_cast<BugFix>(ta)->GetID());
 					//add it to doc
 					pTimeAllocationSub->InsertEndChild(pElement);
 				}
-				else if (dynamic_cast<Research*>(ta))
+				else if (std::dynamic_pointer_cast<Research>(ta))
 				{
 					//create research tag
 					pElement = doc.NewElement("research");
@@ -454,7 +454,7 @@ void DataCzar::SaveToFile()
 					//create end tag
 					pElement = doc.NewElement("details");
 					//populate it
-					pElement->SetText(dynamic_cast<Research*>(ta)->GetDetails().c_str());
+					pElement->SetText(std::dynamic_pointer_cast<Research>(ta)->GetDetails().c_str());
 					//add it to doc
 					pTimeAllocationSub->InsertEndChild(pElement);
 				}

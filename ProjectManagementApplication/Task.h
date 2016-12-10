@@ -9,6 +9,7 @@
 #include "Research.h"
 #include <iostream>
 #include "RuntimeMenu.h"
+#include <memory>
 
 class Task
 {
@@ -19,8 +20,8 @@ public:
 	void SetName(std::string s) { name_ = s; }
 	void SetDesc(std::string s) { desc_ = s; }
 	std::string GetDesc() { return desc_; }
-	void SetTAs(std::vector<TimeAllocation*> & ta) { timeAllocations_ = ta; }
-	std::vector<TimeAllocation*> & GetTAs() { return timeAllocations_; }
+	void SetTAs(std::vector<std::shared_ptr<TimeAllocation>> & ta) { timeAllocations_ = ta; }
+	std::vector<std::shared_ptr<TimeAllocation>> & GetTAs() { return timeAllocations_; }
 	void SetStart(std::string s) { start_ = s; }
 	std::string GetStart() { return start_.getFormatted(); }
 	void SetDeadline(std::string s) { deadline_ = s; }
@@ -35,7 +36,7 @@ private:
 	std::string desc_;
 	DateTime start_;
 	DateTime deadline_;
-	std::vector<TimeAllocation*> timeAllocations_;
+	std::vector<std::shared_ptr<TimeAllocation>> timeAllocations_;
 };
 
 

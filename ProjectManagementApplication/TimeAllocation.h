@@ -3,6 +3,7 @@
 #include "DateTime.h"
 #include <tuple>
 #include <iostream>
+#include <memory>
 
 class TimeAllocation
 {
@@ -22,4 +23,4 @@ protected:
 	std::string spacer = "   >";
 };
 
-std::ostream &operator<<(std::ostream &output, TimeAllocation *ta);
+std::ostream &operator<<(std::ostream &output, std::shared_ptr<TimeAllocation> ta);
