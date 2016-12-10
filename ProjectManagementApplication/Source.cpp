@@ -7,18 +7,48 @@
 void CommandLoadXMLFIle();
 void CommandLoadMainMenu();
 void CommandLoadDisplayData();
-void CommandDisplayTAsOnly();
 void CommandSortData();
 void CommandSortTAs(bool order); //0 for assending, 1 for desending
-void CommandEditData();
-void CommandSelectProject();
+void CommandSelectProjectAndEdit();
 void CommandSelectTask(Project * pP);
 void CommandAddTA(Task * pT);
 
-void CreateMeeting(Task * pT);
-void CreateWorkDone(Task * pT);
-void CreateBugFix(Task * pT);
-void CreateResearch(Task * pT);
+
+//helper functions
+void CreateMeeting(Task * pT)
+{
+	std::shared_ptr<Meeting> m(new Meeting);
+	m->SetUpNewClassFromUser();
+	pT->GetTAs().push_back(m);
+}
+
+void CreateWorkDone(Task * pT)
+{
+	std::shared_ptr<WorkDone> w(new WorkDone);
+	w->SetUpNewClassFromUser();
+	pT->GetTAs().push_back(w);
+}
+
+void CreateBugFix(Task * pT)
+{
+	std::shared_ptr<BugFix> b(new BugFix);
+	b->SetUpNewClassFromUser();
+	pT->GetTAs().push_back(b);
+}
+
+void CreateResearch(Task * pT)
+{
+	std::shared_ptr<Research> r(new Research);
+	r->SetUpNewClassFromUser();
+	pT->GetTAs().push_back(r);
+}
+
+const bool IsGreaterThan(std::shared_ptr<TimeAllocation> lhs, std::shared_ptr<TimeAllocation>rhs)
+{
+	return (*lhs) < (*rhs);
+}
+
+//end of helper functions
 
 void CommandSortData()
 {
@@ -50,11 +80,6 @@ void CommandSortData()
 	}
 
 	CommandLoadMainMenu();
-}
-
-const bool IsGreaterThan(std::shared_ptr<TimeAllocation> lhs, std::shared_ptr<TimeAllocation>rhs)
-{
-	return (*lhs) < (*rhs);
 }
 
 void CommandSortTAs(bool full) //true for assending, false for desending
@@ -135,11 +160,6 @@ void CommandSortTAs(bool full) //true for assending, false for desending
 	
 }
 
-void CommandDisplayTAsOnly()
-{
-	
-}
-
 void CommandLoadXMLFIle()
 {
 	RuntimeMenu::DisplayLoadXMLMenu();
@@ -181,12 +201,7 @@ void CommandLoadDisplayData()
 	CommandLoadMainMenu();
 }
 
-void CommandEditData()
-{
-	CommandSelectProject();
-}
-
-void CommandSelectProject()
+void CommandSelectProjectAndEdit()
 {
 	RuntimeMenu::DisplayTitle();
 
@@ -318,34 +333,6 @@ void CommandAddTA(Task * pT)
 	CommandLoadMainMenu();
 }
 
-void CreateMeeting(Task * pT)
-{
-	std::shared_ptr<Meeting> m(new Meeting);
-	m->SetUpNewClassFromUser();
-	pT->GetTAs().push_back(m);
-}
-
-void CreateWorkDone(Task * pT)
-{
-	std::shared_ptr<WorkDone> w(new WorkDone);
-	w->SetUpNewClassFromUser();
-	pT->GetTAs().push_back(w);
-}
-
-void CreateBugFix(Task * pT)
-{
-	std::shared_ptr<BugFix> b(new BugFix);
-	b->SetUpNewClassFromUser();
-	pT->GetTAs().push_back(b);
-}
-
-void CreateResearch(Task * pT)
-{
-	std::shared_ptr<Research> r(new Research);
-	r->SetUpNewClassFromUser();
-	pT->GetTAs().push_back(r);
-}
-
 void CommandLoadMainMenu()
 {
 	int response;
@@ -376,7 +363,7 @@ void CommandLoadMainMenu()
 		case 4:
 			responseSuccess = true;
 			//edit data
-			CommandEditData();
+			CommandSelectProjectAndEdit();
 			break;
 		case 5:
 			responseSuccess = true;

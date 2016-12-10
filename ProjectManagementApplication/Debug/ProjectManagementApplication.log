@@ -1,5 +1,3 @@
-﻿  RuntimeMenu.cpp
-c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\runtimemenu.cpp(44): warning C4018: '<': signed/unsigned mismatch
-c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\projectmanagementapplication\runtimemenu.cpp(53): warning C4018: '<': signed/unsigned mismatch
+﻿  Source.cpp
   ProjectManagementApplication.vcxproj -> C:\Users\iamse\documents\visual studio 2015\Projects\ProjectManagementApplication\Debug\ProjectManagementApplication.exe
   ProjectManagementApplication.vcxproj -> C:\Users\iamse\documents\visual studio 2015\Projects\ProjectManagementApplication\Debug\ProjectManagementApplication.pdb (Full PDB)
