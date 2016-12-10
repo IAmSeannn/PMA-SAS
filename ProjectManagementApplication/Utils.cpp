@@ -35,3 +35,9 @@ const bool Utils::IsGreaterThan(std::shared_ptr<TimeAllocation> lhs, std::shared
 {
 	return (*lhs) < (*rhs);
 }
+
+void Utils::Pause()
+{
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::cin.get();
+}

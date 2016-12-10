@@ -11,6 +11,47 @@ void CommandSelectProjectAndEdit();
 void CommandSelectTask(Project * pP);
 void CommandAddTA(Task * pT);
 
+//command to load xml
+void CommandLoadXMLFIle()
+{
+	RuntimeMenu::DisplayLoadXMLMenu();
+	std::string inputPath;
+	bool success = false;
+	while (!success)
+	{
+		std::cin >> inputPath;
+		tinyxml2::XMLError error = DataCzar::Current->SetUp(inputPath);
+		if (error == tinyxml2::XML_SUCCESS)
+		{
+			std::cout << "Data loaded successfully. Press any key to continue...";
+			success = true;
+		}
+		else
+		{
+			std::cout << "ERROR: " << error << "\n";
+			std::cout << "Loading failed. The file may not exist or be mispelled. Please try again:\n";
+		}
+	}
+	Utils::Pause();
+	CommandLoadMainMenu();
+}
+
+//command to display loaded xml data
+void CommandLoadDisplayData()
+{
+	const int count = DataCzar::Current->GetProjects().size();
+	int current = 1;
+	for (Project p : DataCzar::Current->GetProjects())
+	{
+		RuntimeMenu::DisplayTitle();
+		std::cout << "Project " << current++ << " of " << count << "\n";
+		std::cout << p;
+		std::system("PAUSE");
+	}
+
+	CommandLoadMainMenu();
+}
+
 //commands to sort data
 void CommandSortData()
 {
@@ -115,54 +156,10 @@ void CommandSortTAs(bool full) //true for assending, false for desending
 			std::cout << ta << "\n";
 		}
 
-		std::cin.get();
-		std::cin.get();
+		Utils::Pause();
 	}
 
-	
-}
 
-//command to load xml
-void CommandLoadXMLFIle()
-{
-	RuntimeMenu::DisplayLoadXMLMenu();
-	std::string inputPath;
-	bool success = false;
-	while (!success)
-	{
-		std::cin >> inputPath;
-		tinyxml2::XMLError error = DataCzar::Current->SetUp(inputPath);
-		if (error == tinyxml2::XML_SUCCESS)
-		{
-			std::cout << "Data loaded successfully. Press any key to continue...";
-			success = true;
-		}
-		else
-		{
-			std::cout << "ERROR: " << error << "\n";
-			std::cout << "Loading failed. The file may not exist or be mispelled. Please try again:\n";
-		}
-	}
-	std::cin.get();
-	std::cin.get();
-	CommandLoadMainMenu();
-}
-
-//command to display loaded xml data
-void CommandLoadDisplayData()
-{
-	const int count = DataCzar::Current->GetProjects().size();
-	int current = 1;
-	for (Project p : DataCzar::Current->GetProjects())
-	{
-		RuntimeMenu::DisplayTitle();
-		std::cout << "Project " << current++ << " of " << count << "\n";
-		std::cout << p;
-		std::cin.get();
-		std::cin.get();
-	}
-
-	CommandLoadMainMenu();
 }
 
 //commands to select project and add a time allocation to a subtask
@@ -293,7 +290,7 @@ void CommandAddTA(Task * pT)
 	DataCzar::Current->SaveToFile();
 
 	std::cout << "Time Allocation added. Press any key to continue";
-	std::cin.get();
+	Utils::Pause();
 
 	CommandLoadMainMenu();
 }
@@ -342,7 +339,6 @@ void CommandLoadMainMenu()
 		}
 	}
 }
-
 
 //main
 int main(int argc, char* argv[])
