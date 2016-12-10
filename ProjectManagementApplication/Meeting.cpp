@@ -1,13 +1,6 @@
 #include "Meeting.h"
-
-Meeting::Meeting()
-{
-}
-
-
-Meeting::~Meeting()
-{
-}
+Meeting::Meeting(){}
+Meeting::~Meeting(){}
 
 const std::string Meeting::GetDetails() const
 {
@@ -16,7 +9,7 @@ const std::string Meeting::GetDetails() const
 	return temp.str();
 }
 
-void Meeting::GetInformationForNewClass()
+void Meeting::SetUpNewClassFromUser()
 {
 	std::cout << "Please enter the names of who will be attending, in one line, separated by commas:\n";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

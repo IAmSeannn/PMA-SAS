@@ -7,7 +7,7 @@ public:
 	Meeting();
 	~Meeting();
 	const std::string GetDetails() const;
-	void GetInformationForNewClass();
+	void SetUpNewClassFromUser();
 	void SetAttendees(std::string s) { attendees_ = s; }
 	std::string GetAttendees() { return attendees_; }
 private:

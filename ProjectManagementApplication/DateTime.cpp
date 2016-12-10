@@ -33,12 +33,10 @@ const int DateTime::GetDifferent(const DateTime end) const
 	hourDif = end.hour - hour;
 	minuteDif = end.minute - minute;
 
-	int temp;
-	temp = (((((((yearDif * 12) + monthDif) * 30) + dayDif) * 25) + hourDif) * 60) + minuteDif;
-	return temp;
+	return ((((((((yearDif-2000) * 12) + monthDif) * 30) + dayDif) * 25) + hourDif) * 60) + minuteDif;
 }
 
 const int DateTime::GetTimeInMinutes() const
 {
-	return minute + (hour * 60) + (day * 1440) + (month * 43200) + (year * 518400);
+	return minute + (hour * 60) + (day * 1440) + (month * 43200) + ((year-2000) * 518400);
 }

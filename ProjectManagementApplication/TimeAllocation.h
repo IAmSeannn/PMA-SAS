@@ -8,7 +8,7 @@ class TimeAllocation
 {
 public:
 	virtual const std::string GetDetails() const = 0;
-	virtual void GetInformationForNewClass() = 0;
+	virtual void SetUpNewClassFromUser() = 0;
 	void SetStart(std::string s) { start_ = s; }
 	std::string GetStart() { return start_.getFormatted(); }
 	std::string GetEnd() { return end_.getFormatted(); }

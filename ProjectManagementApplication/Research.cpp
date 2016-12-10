@@ -1,15 +1,6 @@
 #include "Research.h"
-
-
-
-Research::Research()
-{
-}
-
-
-Research::~Research()
-{
-}
+Research::Research(){}
+Research::~Research(){}
 
 const std::string Research::GetDetails() const
 {
@@ -18,7 +9,7 @@ const std::string Research::GetDetails() const
 	return temp.str();
 }
 
-void Research::GetInformationForNewClass()
+void Research::SetUpNewClassFromUser()
 {
 	std::cout << "Please enter a description of the research:\n";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

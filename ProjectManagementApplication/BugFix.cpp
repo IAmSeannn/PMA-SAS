@@ -18,7 +18,7 @@ const std::string BugFix::GetDetails() const
 	return temp.str();
 }
 
-void BugFix::GetInformationForNewClass()
+void BugFix::SetUpNewClassFromUser()
 {
 	std::cout << "Please enter a description of the Bug Fix:\n";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

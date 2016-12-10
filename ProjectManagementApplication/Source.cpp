@@ -321,28 +321,28 @@ void CommandAddTA(Task * pT)
 void CreateMeeting(Task * pT)
 {
 	Meeting * m = new Meeting();
-	m->GetInformationForNewClass();
+	m->SetUpNewClassFromUser();
 	pT->GetTAs().push_back(m);
 }
 
 void CreateWorkDone(Task * pT)
 {
 	WorkDone * w = new WorkDone();
-	w->GetInformationForNewClass();
+	w->SetUpNewClassFromUser();
 	pT->GetTAs().push_back(w);
 }
 
 void CreateBugFix(Task * pT)
 {
 	BugFix * b = new BugFix();
-	b->GetInformationForNewClass();
+	b->SetUpNewClassFromUser();
 	pT->GetTAs().push_back(b);
 }
 
 void CreateResearch(Task * pT)
 {
 	Research * r = new Research();
-	r->GetInformationForNewClass();
+	r->SetUpNewClassFromUser();
 	pT->GetTAs().push_back(r);
 }
 

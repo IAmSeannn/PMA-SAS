@@ -63,7 +63,7 @@ std::string RuntimeMenu::GetTimeSpentString(int minutesSpent, std::string spacer
 {
 	int minute, hour, day, month, year;
 
-	year = minutesSpent / 518400;
+	year = (minutesSpent / 518400) + 2000;
 	minutesSpent = minutesSpent % 518400;
 	month = minutesSpent / 43200;
 	minutesSpent = minutesSpent % 43200;

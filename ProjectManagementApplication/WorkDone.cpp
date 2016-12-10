@@ -1,15 +1,6 @@
 #include "WorkDone.h"
-
-
-
-WorkDone::WorkDone()
-{
-}
-
-
-WorkDone::~WorkDone()
-{
-}
+WorkDone::WorkDone(){}
+WorkDone::~WorkDone(){}
 
 const std::string WorkDone::GetDetails() const
 {
@@ -18,7 +9,7 @@ const std::string WorkDone::GetDetails() const
 	return temp.str();
 }
 
-void WorkDone::GetInformationForNewClass()
+void WorkDone::SetUpNewClassFromUser()
 {
 	std::cout << "Please enter the work that was done:\n";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
