@@ -19,6 +19,6 @@ private:
 	int hour;   // 0 to 23
 	int day;    // 1 to 31
 	int month;  // 1 to 12
-	int year; //in all caluclations, 2000 is taken from it, and added back where required. This helps keep the numbers manageable.
+	int year; //in all caluclations, 1970 is taken from it, and added back where required. This helps keep the numbers manageable.
 };
 

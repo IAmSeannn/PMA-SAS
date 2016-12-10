@@ -38,5 +38,5 @@ const int DateTime::GetDifferent(const DateTime end) const
 
 const int DateTime::GetTimeInMinutes() const
 {
-	return minute + (hour * 60) + (day * 1440) + (month * 43200) + ((year) * 518400);
+	return minute + (hour * 60) + (day * 1440) + (month * 43200) + ((year-1970) * 518400);
 }
