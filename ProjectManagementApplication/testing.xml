@@ -33,11 +33,11 @@
                     <end>28/01/2016 10:00</end>
                     <attendees>Me, the excellent meal.</attendees>
                 </meeting>
-                <meeting>
-                    <start>28/01/2016 08:00</start>
-                    <end>28/01/2016 12:00</end>
-                    <attendees>Me, the toilet.</attendees>
-                </meeting>
+                <workDone>
+                  <start>28/01/2016 16:00</start>
+                  <end>28/01/2016 20:00</end>
+                  <desc>The food was removed from the system.</desc>
+                </workDone>
                 <workDone>
                     <start>28/01/2016 10:00</start>
                     <end>28/01/2016 12:00</end>
@@ -48,11 +48,11 @@
                     <end>28/01/2016 22:00</end>
                     <details>I discovered how to make better food.</details>
                 </research>
-                <workDone>
-                    <start>28/01/2016 16:00</start>
-                    <end>28/01/2016 20:00</end>
-                    <desc>The food was removed from the system.</desc>
-                </workDone>
+                <meeting>
+                  <start>28/01/2016 08:00</start>
+                  <end>28/01/2016 12:00</end>
+                  <attendees>Me, the toilet.</attendees>
+                </meeting>
             </timeAllocations>
         </task>
     </project>

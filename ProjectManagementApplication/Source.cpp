@@ -1,8 +1,6 @@
-#include <iostream>
 #include "DataCzar.h"
-#include "RuntimeMenu.h"
+#include "Utils.h"
 #include <algorithm>
-#include "TimeAllocation.h"
 
 void CommandLoadXMLFIle();
 void CommandLoadMainMenu();
@@ -13,43 +11,7 @@ void CommandSelectProjectAndEdit();
 void CommandSelectTask(Project * pP);
 void CommandAddTA(Task * pT);
 
-
-//helper functions
-void CreateMeeting(Task * pT)
-{
-	std::shared_ptr<Meeting> m(new Meeting);
-	m->SetUpNewClassFromUser();
-	pT->GetTAs().push_back(m);
-}
-
-void CreateWorkDone(Task * pT)
-{
-	std::shared_ptr<WorkDone> w(new WorkDone);
-	w->SetUpNewClassFromUser();
-	pT->GetTAs().push_back(w);
-}
-
-void CreateBugFix(Task * pT)
-{
-	std::shared_ptr<BugFix> b(new BugFix);
-	b->SetUpNewClassFromUser();
-	pT->GetTAs().push_back(b);
-}
-
-void CreateResearch(Task * pT)
-{
-	std::shared_ptr<Research> r(new Research);
-	r->SetUpNewClassFromUser();
-	pT->GetTAs().push_back(r);
-}
-
-const bool IsGreaterThan(std::shared_ptr<TimeAllocation> lhs, std::shared_ptr<TimeAllocation>rhs)
-{
-	return (*lhs) < (*rhs);
-}
-
-//end of helper functions
-
+//commands to sort data
 void CommandSortData()
 {
 	RuntimeMenu::DisplayTitle();
@@ -113,7 +75,7 @@ void CommandSortTAs(bool full) //true for assending, false for desending
 		{
 			for (Task &t : p.GetTasks())
 			{
-				std::sort(t.GetTAs().begin(), t.GetTAs().end(), IsGreaterThan);
+				std::sort(t.GetTAs().begin(), t.GetTAs().end(), Utils::IsGreaterThan);
 
 				if (response == 1)
 				{
@@ -137,7 +99,7 @@ void CommandSortTAs(bool full) //true for assending, false for desending
 			}
 		}
 
-		std::sort(master.begin(), master.end(), IsGreaterThan);
+		std::sort(master.begin(), master.end(), Utils::IsGreaterThan);
 
 		if (response == 1)
 		{
@@ -160,6 +122,7 @@ void CommandSortTAs(bool full) //true for assending, false for desending
 	
 }
 
+//command to load xml
 void CommandLoadXMLFIle()
 {
 	RuntimeMenu::DisplayLoadXMLMenu();
@@ -185,6 +148,7 @@ void CommandLoadXMLFIle()
 	CommandLoadMainMenu();
 }
 
+//command to display loaded xml data
 void CommandLoadDisplayData()
 {
 	const int count = DataCzar::Current->GetProjects().size();
@@ -201,6 +165,7 @@ void CommandLoadDisplayData()
 	CommandLoadMainMenu();
 }
 
+//commands to select project and add a time allocation to a subtask
 void CommandSelectProjectAndEdit()
 {
 	RuntimeMenu::DisplayTitle();
@@ -300,22 +265,22 @@ void CommandAddTA(Task * pT)
 		case 1:
 			success = true;
 			//meeting
-			CreateMeeting(pT);
+			Utils::CreateMeeting(pT);
 			break;
 		case 2:
 			success = true;
 			//work done
-			CreateWorkDone(pT);
+			Utils::CreateWorkDone(pT);
 			break;
 		case 3:
 			success = true;
 			//bug fix
-			CreateBugFix(pT);
+			Utils::CreateBugFix(pT);
 			break;
 		case 4:
 			success = true;
 			//research
-			CreateResearch(pT);
+			Utils::CreateResearch(pT);
 			break;
 		default:
 			std::cout << "Command not recognised, please try again.\n";
@@ -333,6 +298,7 @@ void CommandAddTA(Task * pT)
 	CommandLoadMainMenu();
 }
 
+//command to load the main menu
 void CommandLoadMainMenu()
 {
 	int response;
@@ -377,6 +343,8 @@ void CommandLoadMainMenu()
 	}
 }
 
+
+//main
 int main(int argc, char* argv[])
 {
 	//todo: add checks incase path isnt valid
@@ -385,7 +353,9 @@ int main(int argc, char* argv[])
 	//DataCzar Data("testing.xml");
 	//DataDisplayer::PrintTest(Data);
 
-	DataCzar::Current = new DataCzar();
+	//initialise static dataczar
+	std::shared_ptr<DataCzar> d(new DataCzar);
+	DataCzar::Current = d;
 
 	CommandLoadMainMenu();
 }

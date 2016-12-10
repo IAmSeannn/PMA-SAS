@@ -10,7 +10,7 @@ public:
 	DataCzar();
 	~DataCzar();
 
-	static DataCzar * Current;
+	static std::shared_ptr<DataCzar> Current;
 	std::string path;
 
 	tinyxml2::XMLError SetUp(const std::string & path);

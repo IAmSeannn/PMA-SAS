@@ -157,6 +157,7 @@
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="TimeAllocation.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
+    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="WorkDone.cpp" />
     <ClCompile Include="XMLTutorial.cpp" />
   </ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="Task.h" />
     <ClInclude Include="TimeAllocation.h" />
     <ClInclude Include="tinyxml2.h" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="WorkDone.h" />
     <ClInclude Include="XMLTutorial.h" />
   </ItemGroup>

@@ -1,6 +1,6 @@
 #include "DataCzar.h"
 
-DataCzar * DataCzar::Current;
+std::shared_ptr<DataCzar> DataCzar::Current;
 
 DataCzar::DataCzar()
 {
