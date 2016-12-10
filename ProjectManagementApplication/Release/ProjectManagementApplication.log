@@ -1,0 +1,22 @@
+﻿  BugFix.cpp
+  DataCzar.cpp
+  DateTime.cpp
+  Meeting.cpp
+  MenuSystem.cpp
+  Project.cpp
+  Research.cpp
+  RuntimeMenu.cpp
+RuntimeMenu.cpp(44): warning C4018: '<': signed/unsigned mismatch
+RuntimeMenu.cpp(53): warning C4018: '<': signed/unsigned mismatch
+  Source.cpp
+  Task.cpp
+  TimeAllocation.cpp
+  tinyxml2.cpp
+  Utils.cpp
+  WorkDone.cpp
+  XMLTutorial.cpp
+  Generating code
+  All 1095 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  ProjectManagementApplication.vcxproj -> C:\Users\iamse\documents\visual studio 2015\Projects\ProjectManagementApplication\Release\ProjectManagementApplication.exe
+  ProjectManagementApplication.vcxproj -> C:\Users\iamse\documents\visual studio 2015\Projects\ProjectManagementApplication\Release\ProjectManagementApplication.pdb (Full PDB)
