@@ -7,6 +7,7 @@ public:
 	~BugFix();
 	const std::string GetDetails() const;
 	void SetUpNewClassFromUser();
+	void EditClassFromUser();
 	void SetDesc(std::string s) { desc_ = s; }
 	std::string GetDesc() { return desc_; }
 	void SetID(int i) { id_ = i; }
@@ -14,5 +15,6 @@ public:
 private:
 	std::string desc_;
 	int id_;
+	void SetupNewBugIDAndDetailsFromUser();
 };
 

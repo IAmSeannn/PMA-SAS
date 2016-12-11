@@ -3,18 +3,20 @@
 #include "DataCzar.h"
 #include "Utils.h"
 #include <algorithm>
+#include <memory>
 
 MenuSystem::MenuSystem(){}
 MenuSystem::~MenuSystem(){}
 
 void CommandSelectTask(Project * pP);
 void CommandAddTA(Task * pT);
+void CommandEditSelectedTA(std::shared_ptr<TimeAllocation> pTa);
 
 //command to load the main menu
 void MenuSystem::CommandLoadMainMenu()
 {
 	int response = 0;
-	while (response != 5)
+	while (response != 9)
 	{
 		RuntimeMenu::DisplayMainMenu();
 		std::cin >> response;
@@ -34,10 +36,14 @@ void MenuSystem::CommandLoadMainMenu()
 			CommandSortData();
 			break;
 		case 4:
-			//edit data
-			CommandSelectProjectAndEdit();
+			//add data
+			CommmandAddTimeAllocation();
 			break;
 		case 5:
+			//edit data
+			CommandEditTimeAllocation();
+			break;
+		case 9:
 			return;
 			//quit
 			break;
@@ -221,7 +227,7 @@ void MenuSystem::CommandSortTAs(bool full) //true for assending, false for desen
 }
 
 //commands to select project and add a time allocation to a subtask
-void MenuSystem::CommandSelectProjectAndEdit()
+void MenuSystem::CommmandAddTimeAllocation()
 {
 	RuntimeMenu::DisplayTitle();
 
@@ -366,4 +372,140 @@ void CommandAddTA(Task * pT)
 		std::cout << "Time Allocation added. Press any key to continue";
 		Utils::Pause();
 	}
+}
+
+//commands to select a project/task and edit TA
+void MenuSystem::CommandEditTimeAllocation()
+{
+	//SELECT PROJECT
+
+	RuntimeMenu::DisplayTitle();
+
+	std::cout << "Here are the currently loaded projects:\n";
+
+	for (Project &p : DataCzar::Current->GetProjects())
+	{
+		std::cout << p.GetName() << "\n";
+	}
+
+	std::cout << "Enter the name of the project you wish to edit:\n";
+	std::cout << "(Enter # to exit to main menu)\n";
+
+	std::string input;
+	bool success = false;
+	Project * projectToEdit = nullptr;
+
+	while (!success)
+	{
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::getline(std::cin, input);
+
+		if (input == "#")
+		{
+			return;
+		}
+
+		for (Project &p : DataCzar::Current->GetProjects())
+		{
+			if (p.GetName() == input)
+			{
+				success = true;
+				projectToEdit = &p;
+			}
+		}
+
+		if (!success)
+		{
+			std::cout << "Project not recognised, please try again. \n";
+		}
+	}
+
+	success = false;
+
+	//SELECT TASK
+	RuntimeMenu::DisplayTitle();
+
+	std::cout << "Here are the currently loaded tasks:\n";
+
+	for (Task &t : projectToEdit->GetTasks())
+	{
+		std::cout << t.GetName() << "\n";
+	}
+
+	std::cout << "Enter the name of the task you wish to edit:\n";
+	std::cout << "(Enter # to exit to main menu)\n";
+
+	Task * taskToEdit = nullptr;
+
+	while (!success)
+	{
+		std::getline(std::cin, input);
+
+		if (input == "#")
+		{
+			return;
+		}
+
+		for (Task &t : projectToEdit->GetTasks())
+		{
+			if (t.GetName() == input)
+			{
+				success = true;
+				taskToEdit = &t;
+			}
+		}
+		if (!success)
+		{
+			std::cout << "Task not recognised, please try again. \n";
+		}
+	}
+	
+	success = false;
+
+	//
+	//
+	//SELECT TA
+	RuntimeMenu::DisplayTitle();
+	std::cout << "Here are the currently loaded Time Allocations:\n";
+
+	int counter = 0;
+
+	for (auto &ta : taskToEdit->GetTAs())
+	{
+		std::cout << ++counter << ". " << ta->GetDetails() << "\n";
+	}
+
+	std::cout << "Enter the number of the Time Allocation you wish to edit: \n";
+	std::cout << "(Enter # to exit to main menu)\n";
+
+	std::shared_ptr<TimeAllocation> taToEdit = nullptr;
+
+	while (!success)
+	{
+		std::getline(std::cin, input);
+
+		if (input == "#")
+		{
+			return;
+		}
+
+		counter = 0;
+
+		for (auto &ta : taskToEdit->GetTAs())
+		{
+			if (std::to_string(++counter) == input)
+			{
+				taToEdit = ta;
+				success = true;
+			}
+		}
+		if (!success)
+		{
+			std::cout << "Input not recognised, try again.\n";
+		}
+	}
+	taToEdit->EditClassFromUser();
+
+	//save changes to file
+	DataCzar::Current->SaveToFile();
 }

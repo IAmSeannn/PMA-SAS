@@ -18,6 +18,14 @@
             <start>27/01/2016 04:00</start>
             <end>27/01/2016 12:00</end>
             <timeAllocations>
+                <workDone>
+                    <start>27/01/2016 10:00</start>
+                    <end>27/01/2016 12:00</end>
+                    <desc>We made the food, killed all the ingredients.. Pain.</desc>
+                    <persons>
+                        <id>2</id>
+                    </persons>
+                </workDone>
                 <meeting>
                     <start>18/08/2014 04:00</start>
                     <end>27/01/2016 06:00</end>
@@ -27,18 +35,13 @@
                     </persons>
                 </meeting>
                 <workDone>
-                    <start>27/01/2016 10:00</start>
-                    <end>27/01/2016 12:00</end>
-                    <desc>We made the food, killed all the ingredients.. Pain.</desc>
-                    <persons>
-                        <id>2</id>
-                    </persons>
-                </workDone>
-                <workDone>
                     <start>12/12/2008 20:20</start>
                     <end>12/12/2008 21:20</end>
-                    <desc>TESSTING PERSONS WRIOTING</desc>
-                    <persons/>
+                    <desc>A better desciption win</desc>
+                    <persons>
+                        <id>1</id>
+                        <id>2</id>
+                    </persons>
                 </workDone>
             </timeAllocations>
         </task>
@@ -48,18 +51,6 @@
             <start>28/01/2016 04:00</start>
             <end>28/01/2016 12:00</end>
             <timeAllocations>
-                <meeting>
-                    <start>28/01/2016 06:00</start>
-                    <end>28/01/2016 10:00</end>
-                    <attendees>Me, the excellent meal.</attendees>
-                    <persons/>
-                </meeting>
-                <meeting>
-                    <start>28/01/2016 08:00</start>
-                    <end>28/01/2016 12:00</end>
-                    <attendees>Me, the toilet.</attendees>
-                    <persons/>
-                </meeting>
                 <workDone>
                     <start>28/01/2016 16:00</start>
                     <end>28/01/2016 20:00</end>
@@ -69,18 +60,30 @@
                         <id>1</id>
                     </persons>
                 </workDone>
-                <workDone>
-                    <start>28/01/2016 10:00</start>
-                    <end>28/01/2016 12:00</end>
-                    <desc>The food was devoured.</desc>
-                    <persons/>
-                </workDone>
                 <research>
                     <start>28/01/2016 12:00</start>
                     <end>28/01/2016 22:00</end>
                     <details>I discovered how to make better food.</details>
                     <persons/>
                 </research>
+                <workDone>
+                    <start>28/01/2016 10:00</start>
+                    <end>28/01/2016 12:00</end>
+                    <desc>The food was devoured.</desc>
+                    <persons/>
+                </workDone>
+                <meeting>
+                    <start>28/01/2016 08:00</start>
+                    <end>28/01/2016 12:00</end>
+                    <attendees>Me, the toilet.</attendees>
+                    <persons/>
+                </meeting>
+                <meeting>
+                    <start>28/01/2016 06:00</start>
+                    <end>28/01/2016 10:00</end>
+                    <attendees>Me, the excellent meal.</attendees>
+                    <persons/>
+                </meeting>
             </timeAllocations>
         </task>
     </project>

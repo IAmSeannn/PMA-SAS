@@ -14,8 +14,9 @@ void RuntimeMenu::DisplayMainMenu()
 	std::cout << " 1. Load XML File\n";
 	std::cout << " 2. Display Loaded Data\n";
 	std::cout << " 3. Sort Data, Then Display\n";
-	std::cout << " 4. Edit Data\n";
-	std::cout << " 5. Quit\n";
+	std::cout << " 4. Add Data\n";
+	std::cout << " 5. Edit Data\n";
+	std::cout << " 9. Quit\n";
 }
 
 void RuntimeMenu::DisplayLoadXMLMenu()

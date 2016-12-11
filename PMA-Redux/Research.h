@@ -7,9 +7,11 @@ public:
 	~Research();
 	const std::string GetDetails() const;
 	void SetUpNewClassFromUser();
+	void EditClassFromUser();
 	void SetDetails(std::string s) { details_ = s; }
 	std::string GetDetails() { return details_; }
 private:
 	std::string details_;
+	void SetupNewResearchDetailsFromUser();
 };
 

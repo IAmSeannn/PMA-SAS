@@ -7,9 +7,11 @@ public:
 	~WorkDone();
 	const std::string GetDetails() const;
 	void SetUpNewClassFromUser();
+	void EditClassFromUser();
 	void SetDesc(std::string s) { desc_ = s; }
 	std::string GetDesc() { return desc_; }
 private:
 	std::string desc_;
+	void SetupNewWorkDoneFromUser();
 };
 
