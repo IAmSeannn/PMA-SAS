@@ -26,4 +26,8 @@ void WorkDone::SetUpNewClassFromUser()
 	std::getline(std::cin, temp);
 	DateTime d2(temp);
 	end_ = d2;
+	std::cout << "Please enter the ID of any Persons assigned to this, separated by commas (no spaces):\n";
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::getline(std::cin, temp);
+	PopulatePersonIDs(temp);
 }

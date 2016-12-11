@@ -271,13 +271,46 @@ void DataCzar::SaveToFile()
 	tinyxml2::XMLNode * pRoot = doc.NewElement("root");
 	doc.InsertFirstChild(pRoot);
 
+	tinyxml2::XMLElement * pElement;
+
+	//first create list of persons
+
+	tinyxml2::XMLElement * pPerson;
+	for (Person p : Current->Persons)
+	{
+		//create person tag
+		pElement = doc.NewElement("person");
+		//add it to root
+		pRoot->InsertEndChild(pElement);
+		//set project as parent and add contents
+		pPerson = pElement;
+
+		//NAME
+		//create name tag
+		pElement = doc.NewElement("name");
+		//populate it
+		pElement->SetText(p.GetName().c_str());
+		//add it to doc
+		pPerson->InsertEndChild(pElement);
+
+		//ID
+		//create id tag
+		pElement = doc.NewElement("id");
+		//populate it
+		pElement->SetText(p.GetID());
+		//add it to doc
+		pPerson->InsertEndChild(pElement);
+	}
+
+
+	//Saves the Main DATA:
+
 	//element
 	tinyxml2::XMLElement * pProject;
 	tinyxml2::XMLElement * pTask;
 	tinyxml2::XMLElement * pTimeAllocation;
 	tinyxml2::XMLElement * pTimeAllocationSub;
-
-	tinyxml2::XMLElement * pElement;
+	tinyxml2::XMLElement * pPersonID;
 
 	for (Project p : Current->Projects)
 	{
@@ -410,6 +443,18 @@ void DataCzar::SaveToFile()
 					//add it to doc
 					pTimeAllocationSub->InsertEndChild(pElement);
 
+					//PERSON ID
+					pElement = doc.NewElement("persons");
+					pTimeAllocationSub->InsertEndChild(pElement);
+					pPersonID = pElement;
+
+					for (auto i : ta->GetPersonIDs())
+					{
+						pElement = doc.NewElement("id");
+						pElement->SetText(i);
+						pPersonID->InsertEndChild(pElement);
+					}
+
 				}
 				else if (std::dynamic_pointer_cast<WorkDone>(ta))
 				{
@@ -443,6 +488,18 @@ void DataCzar::SaveToFile()
 					pElement->SetText(std::dynamic_pointer_cast<WorkDone>(ta)->GetDesc().c_str());
 					//add it to doc
 					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//PERSON ID
+					pElement = doc.NewElement("persons");
+					pTimeAllocationSub->InsertEndChild(pElement);
+					pPersonID = pElement;
+
+					for (auto i : ta->GetPersonIDs())
+					{
+						pElement = doc.NewElement("id");
+						pElement->SetText(i);
+						pPersonID->InsertEndChild(pElement);
+					}
 				}
 				else if (std::dynamic_pointer_cast<BugFix>(ta))
 				{
@@ -484,6 +541,18 @@ void DataCzar::SaveToFile()
 					pElement->SetText(std::dynamic_pointer_cast<BugFix>(ta)->GetID());
 					//add it to doc
 					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//PERSON ID
+					pElement = doc.NewElement("persons");
+					pTimeAllocationSub->InsertEndChild(pElement);
+					pPersonID = pElement;
+
+					for (auto i : ta->GetPersonIDs())
+					{
+						pElement = doc.NewElement("id");
+						pElement->SetText(i);
+						pPersonID->InsertEndChild(pElement);
+					}
 				}
 				else if (std::dynamic_pointer_cast<Research>(ta))
 				{
@@ -517,6 +586,18 @@ void DataCzar::SaveToFile()
 					pElement->SetText(std::dynamic_pointer_cast<Research>(ta)->GetDetails().c_str());
 					//add it to doc
 					pTimeAllocationSub->InsertEndChild(pElement);
+
+					//PERSON ID
+					pElement = doc.NewElement("persons");
+					pTimeAllocationSub->InsertEndChild(pElement);
+					pPersonID = pElement;
+
+					for (auto i : ta->GetPersonIDs())
+					{
+						pElement = doc.NewElement("id");
+						pElement->SetText(i);
+						pPersonID->InsertEndChild(pElement);
+					}
 				}
 			}
 		}

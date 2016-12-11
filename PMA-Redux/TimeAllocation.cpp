@@ -41,3 +41,20 @@ const std::string TimeAllocation::GetPersonNamesFormatted() const
 	}
 	return temp.str();
 }
+
+void TimeAllocation::PopulatePersonIDs(std::string s)
+{
+	std::istringstream iss(s);
+
+	int i;
+
+	while (iss >> i)
+	{
+		PersonIDs.push_back(i);
+
+		if (iss.peek() == ',' || iss.peek() == ' ')
+		{
+			iss.ignore();
+		}
+	}
+}
