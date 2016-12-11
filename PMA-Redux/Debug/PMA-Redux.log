@@ -1,0 +1,48 @@
+﻿Build started 11/12/2016 17:11:59.
+     1>Project "C:\Users\iamse\Documents\Visual Studio 2015\Projects\ProjectManagementApplication\PMA-Redux\PMA-Redux.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BugFix.cpp DataCzar.cpp DateTime.cpp MagicStr.cpp Meeting.cpp MenuSystem.cpp Person.cpp Project.cpp Research.cpp RuntimeMenu.cpp Source.cpp Task.cpp TimeAllocation.cpp tinyxml2.cpp Utils.cpp WorkDone.cpp XMLTutorial.cpp
+         XMLTutorial.cpp
+         WorkDone.cpp
+         Utils.cpp
+         tinyxml2.cpp
+         TimeAllocation.cpp
+         Task.cpp
+         Source.cpp
+         RuntimeMenu.cpp
+     1>c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\pma-redux\runtimemenu.cpp(44): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\iamse\documents\visual studio 2015\projects\projectmanagementapplication\pma-redux\runtimemenu.cpp(53): warning C4018: '<' : signed/unsigned mismatch
+         Research.cpp
+         Project.cpp
+         Person.cpp
+         MenuSystem.cpp
+         Meeting.cpp
+         MagicStr.cpp
+         DateTime.cpp
+         DataCzar.cpp
+         BugFix.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\iamse\Documents\Visual Studio 2015\Projects\ProjectManagementApplication\Debug\PMA-Redux.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\iamse\Documents\Visual Studio 2015\Projects\ProjectManagementApplication\Debug\PMA-Redux.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\iamse\Documents\Visual Studio 2015\Projects\ProjectManagementApplication\Debug\PMA-Redux.lib" /MACHINE:X86 Debug\BugFix.obj
+         Debug\DataCzar.obj
+         Debug\DateTime.obj
+         Debug\MagicStr.obj
+         Debug\Meeting.obj
+         Debug\MenuSystem.obj
+         Debug\Person.obj
+         Debug\Project.obj
+         Debug\Research.obj
+         Debug\RuntimeMenu.obj
+         Debug\Source.obj
+         Debug\Task.obj
+         Debug\TimeAllocation.obj
+         Debug\tinyxml2.obj
+         Debug\Utils.obj
+         Debug\WorkDone.obj
+         Debug\XMLTutorial.obj
+         PMA-Redux.vcxproj -> C:\Users\iamse\Documents\Visual Studio 2015\Projects\ProjectManagementApplication\Debug\PMA-Redux.exe
+     1>Done Building Project "C:\Users\iamse\Documents\Visual Studio 2015\Projects\ProjectManagementApplication\PMA-Redux\PMA-Redux.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:09.27
