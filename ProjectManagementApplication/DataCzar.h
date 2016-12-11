@@ -3,6 +3,7 @@
 #include <vector>
 #include "Project.h"
 #include "tinyxml2.h"
+#include "Person.h"
 
 class DataCzar
 {
@@ -15,11 +16,11 @@ public:
 
 	tinyxml2::XMLError SetUp(const std::string & path);
 	void SaveToFile();
-	std::vector<Project> & GetProjects() {
-		return Projects;
-	};
+	std::vector<Project> & GetProjects() { return Projects; };
+	std::vector<Person> & GetPersons(){ return Persons; };
 private:
 	std::vector<Project> Projects;
+	std::vector<Person> Persons;
 	tinyxml2::XMLError LoadInXML(const std::string);
 	void LoadInProjects(tinyxml2::XMLNode *);
 	std::vector<Task> LoadInTasks(tinyxml2::XMLNode *);

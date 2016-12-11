@@ -13,38 +13,31 @@ void CommandAddTA(Task * pT);
 //command to load the main menu
 void MenuSystem::CommandLoadMainMenu()
 {
-	int response;
-	bool responseSuccess = false;
-	RuntimeMenu::DisplayMainMenu();
-
-	while (!responseSuccess)
+	int response = 0;
+	while (response != 5)
 	{
+		RuntimeMenu::DisplayMainMenu();
 		std::cin >> response;
 
 		switch (response)
 		{
 		case 1:
-			responseSuccess = true;
 			//load xml file
-			MenuSystem::CommandLoadXMLFIle();
+			CommandLoadXMLFIle();
 			break;
 		case 2:
-			responseSuccess = true;
 			//display data
 			CommandLoadDisplayData();
 			break;
 		case 3:
-			responseSuccess = true;
 			//sort data, then display
 			CommandSortData();
 			break;
 		case 4:
-			responseSuccess = true;
 			//edit data
 			CommandSelectProjectAndEdit();
 			break;
 		case 5:
-			responseSuccess = true;
 			return;
 			//quit
 			break;
@@ -72,8 +65,15 @@ void MenuSystem::CommandLoadXMLFIle()
 		}
 		else
 		{
-			std::cout << "ERROR: " << error << "\n";
-			std::cout << "Loading failed. The file may not exist or be mispelled. Please try again:\n";
+			if (inputPath == "#")
+			{
+				return;
+			}
+			else
+			{
+				std::cout << "ERROR: " << error << "\n";
+				std::cout << "Loading failed. The file may not exist or be mispelled. Please try again:\n";
+			}
 		}
 	}
 	Utils::Pause();
@@ -84,16 +84,25 @@ void MenuSystem::CommandLoadXMLFIle()
 void MenuSystem::CommandLoadDisplayData()
 {
 	const int count = DataCzar::Current->GetProjects().size();
-	int current = 1;
-	for (Project p : DataCzar::Current->GetProjects())
+	if (count <= 0)
 	{
+		//no data loaded
+		//return to menu
 		RuntimeMenu::DisplayTitle();
-		std::cout << "Project " << current++ << " of " << count << "\n";
-		std::cout << p;
-		std::system("PAUSE");
+		std::cout << "Sorry, you have not loaded any data, or no Projects were found in the data. Try loading another file.";
+		Utils::Pause();
 	}
-
-	CommandLoadMainMenu();
+	else
+	{
+		int current = 1;
+		for (Project p : DataCzar::Current->GetProjects())
+		{
+			RuntimeMenu::DisplayTitle();
+			std::cout << "Project " << current++ << " of " << count << "\n";
+			std::cout << p;
+			Utils::Pause();
+		}
+	}
 }
 
 //commands to sort data
@@ -101,7 +110,7 @@ void MenuSystem::CommandSortData()
 {
 	RuntimeMenu::DisplayTitle();
 
-	std::cout << "Would you like to see the Time Allocations grouped with appropriate tasks and projects? Y/N\n";
+	std::cout << "Would you like to see the Time Allocations grouped with appropriate tasks and projects? Y/N\n(Use # to return to main menu)\n";
 	bool success = false;
 	char response;
 	while (!success)
@@ -120,22 +129,25 @@ void MenuSystem::CommandSortData()
 			CommandSortTAs(false);
 			success = true;
 			break;
+		case '#':
+			return;
 		default:
 			std::cout << "That command is no recognised, please try again.\n";
 			break;
 		}
 	}
 
-	CommandLoadMainMenu();
+	//CommandLoadMainMenu();
 }
 
 void MenuSystem::CommandSortTAs(bool full) //true for assending, false for desending
 {
 	std::cout << "Before displaying the data, how would you like it sorted?\n";
+	std::cout << "(Enter # to return to the main menu)\n";
 	std::cout << "1. Assending\n";
 	std::cout << "2. Desending\n";
 
-	int response;
+	char response;
 	bool responseSuccess = false;
 	while (!responseSuccess)
 	{
@@ -143,11 +155,13 @@ void MenuSystem::CommandSortTAs(bool full) //true for assending, false for desen
 
 		switch (response)
 		{
-		case 1:
-		case 2:
+		case '1':
+		case '2':
 			responseSuccess = true;
 			//desending
 			break;
+		case '#':
+			return;
 		default:
 			std::cout << "Command not recognised, please try again.\n";
 			break;
@@ -219,6 +233,7 @@ void MenuSystem::CommandSelectProjectAndEdit()
 	}
 
 	std::cout << "Enter the name of the project you wish to edit:\n";
+	std::cout << "(Enter # to exit to main menu)\n";
 
 	std::string input;
 	bool success = false;
@@ -228,6 +243,11 @@ void MenuSystem::CommandSelectProjectAndEdit()
 	{
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::getline(std::cin, input);
+
+		if (input == "#")
+		{
+			return;
+		}
 
 		for (Project &p : DataCzar::Current->GetProjects())
 		{
@@ -259,6 +279,7 @@ void CommandSelectTask(Project * pP)
 	}
 
 	std::cout << "Enter the name of the task you wish to edit:\n";
+	std::cout << "(Enter # to exit to main menu)\n";
 
 	std::string input;
 	bool success = false;
@@ -267,6 +288,11 @@ void CommandSelectTask(Project * pP)
 	while (!success)
 	{
 		std::getline(std::cin, input);
+
+		if (input == "#")
+		{
+			return;
+		}
 
 		for (Task &t : pP->GetTasks())
 		{
@@ -290,12 +316,13 @@ void CommandAddTA(Task * pT)
 	RuntimeMenu::DisplayTitle();
 
 	std::cout << "What kind of Time Allocation would you like to add? \n";
+	std::cout << "Warning: This cant be undone, enter # to return to the main menu if you require.\n";
 	std::cout << "1. Meeting\n";
 	std::cout << "2. Work Done\n";
 	std::cout << "3. Bug Fix\n";
 	std::cout << "4. Research\n";
 
-	int input = 0;
+	char input = '0';
 	bool success = false;
 	while (!success)
 	{
@@ -303,26 +330,28 @@ void CommandAddTA(Task * pT)
 
 		switch (input)
 		{
-		case 1:
+		case '1':
 			success = true;
 			//meeting
 			Utils::CreateMeeting(pT);
 			break;
-		case 2:
+		case '2':
 			success = true;
 			//work done
 			Utils::CreateWorkDone(pT);
 			break;
-		case 3:
+		case '3':
 			success = true;
 			//bug fix
 			Utils::CreateBugFix(pT);
 			break;
-		case 4:
+		case '4':
 			success = true;
 			//research
 			Utils::CreateResearch(pT);
 			break;
+		case '#':
+			return;
 		default:
 			std::cout << "Command not recognised, please try again.\n";
 			break;
@@ -330,11 +359,11 @@ void CommandAddTA(Task * pT)
 	}
 
 	//write to file
-	//pain
-	DataCzar::Current->SaveToFile();
-
-	std::cout << "Time Allocation added. Press any key to continue";
-	Utils::Pause();
-
-	MenuSystem::CommandLoadMainMenu();
+	//only if data was added
+	if (input != '#')
+	{
+		DataCzar::Current->SaveToFile();
+		std::cout << "Time Allocation added. Press any key to continue";
+		Utils::Pause();
+	}
 }

@@ -151,6 +151,7 @@
     <ClCompile Include="DateTime.cpp" />
     <ClCompile Include="Meeting.cpp" />
     <ClCompile Include="MenuSystem.cpp" />
+    <ClCompile Include="Person.cpp" />
     <ClCompile Include="Project.cpp" />
     <ClCompile Include="Research.cpp" />
     <ClCompile Include="RuntimeMenu.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="DateTime.h" />
     <ClInclude Include="Meeting.h" />
     <ClInclude Include="MenuSystem.h" />
+    <ClInclude Include="Person.h" />
     <ClInclude Include="Project.h" />
     <ClInclude Include="Research.h" />
     <ClInclude Include="RuntimeMenu.h" />
