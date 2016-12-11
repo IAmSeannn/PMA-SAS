@@ -24,10 +24,35 @@ tinyxml2::XMLError DataCzar::LoadInXML(const std::string path)
 		tinyxml2::XMLNode * pRoot = xmlDoc.FirstChild();
 
 		//load projects using root
+		LoadInPersons(pRoot);
 		LoadInProjects(pRoot);
 		DataCzar::Current->path = path;
 	}
 	return success;
+}
+
+void DataCzar::LoadInPersons(tinyxml2::XMLNode * pRoot)
+{
+	//loop through all projects
+	tinyxml2::XMLElement * pPersonHeader = pRoot->FirstChildElement("person");
+	while (pPersonHeader != nullptr)
+	{
+		Person p;
+
+		//get element of name
+		tinyxml2::XMLElement * pProjectElement = pPersonHeader->FirstChildElement("name");
+		p.SetName(pProjectElement->GetText());
+		//do same again for id
+		pProjectElement = pPersonHeader->FirstChildElement("id");
+		int i;
+		pProjectElement->QueryIntText(&i);
+		p.SetID(i);
+
+		//add project to list of projects
+		Persons.push_back(p);
+		//move xml pointer to next project in file
+		pPersonHeader = pPersonHeader->NextSiblingElement("person");
+	}
 }
 
 void DataCzar::LoadInProjects(tinyxml2::XMLNode * pRoot)
@@ -117,6 +142,11 @@ std::vector<std::shared_ptr<TimeAllocation>> DataCzar::LoadInTAs(tinyxml2::XMLNo
 		m->SetStart(pMeetingElement->GetText());
 		pMeetingElement = pTAHeader->FirstChildElement("end");
 		m->SetEnd(pMeetingElement->GetText());
+		pMeetingElement = pTAHeader->FirstChildElement("persons");
+		if (pMeetingElement != nullptr)
+		{
+			m->SetPersonIDs(LoadInPersonIDs(pMeetingElement));
+		}
 
 		//add m to temp vector
 		temp.push_back(m);
@@ -138,6 +168,11 @@ std::vector<std::shared_ptr<TimeAllocation>> DataCzar::LoadInTAs(tinyxml2::XMLNo
 		w->SetStart(pWorkDoneElement->GetText());
 		pWorkDoneElement = pTAHeader->FirstChildElement("end");
 		w->SetEnd(pWorkDoneElement->GetText());
+		pWorkDoneElement = pTAHeader->FirstChildElement("persons");
+		if (pWorkDoneElement != nullptr)
+		{
+			w->SetPersonIDs(LoadInPersonIDs(pWorkDoneElement));
+		}
 
 		//add m to temp vector
 		temp.push_back(w);
@@ -164,6 +199,11 @@ std::vector<std::shared_ptr<TimeAllocation>> DataCzar::LoadInTAs(tinyxml2::XMLNo
 		int i;
 		pBugFixElement->QueryIntText(&i);
 		b->SetID(i);
+		pBugFixElement = pTAHeader->FirstChildElement("persons");
+		if (pBugFixElement != nullptr)
+		{
+			b->SetPersonIDs(LoadInPersonIDs(pBugFixElement));
+		}
 
 		//add b to temp vector
 		temp.push_back(b);
@@ -178,14 +218,18 @@ std::vector<std::shared_ptr<TimeAllocation>> DataCzar::LoadInTAs(tinyxml2::XMLNo
 		 std::shared_ptr<Research> r(new Research);
 
 		//get element of desc
-		tinyxml2::XMLElement * pBugFixElement = pTAHeader->FirstChildElement("details");
-		r->SetDetails(pBugFixElement->GetText());
+		tinyxml2::XMLElement * pResearchElement = pTAHeader->FirstChildElement("details");
+		r->SetDetails(pResearchElement->GetText());
 		//start and end
-		pBugFixElement = pTAHeader->FirstChildElement("start");
-		r->SetStart(pBugFixElement->GetText());
-		pBugFixElement = pTAHeader->FirstChildElement("end");
-		r->SetEnd(pBugFixElement->GetText());
-		//get element of id to int
+		pResearchElement = pTAHeader->FirstChildElement("start");
+		r->SetStart(pResearchElement->GetText());
+		pResearchElement = pTAHeader->FirstChildElement("end");
+		r->SetEnd(pResearchElement->GetText());
+		pResearchElement = pTAHeader->FirstChildElement("persons");
+		if (pResearchElement != nullptr)
+		{
+			r->SetPersonIDs(LoadInPersonIDs(pResearchElement));
+		}
 
 		//add b to temp vector
 		temp.push_back(r);
@@ -194,6 +238,22 @@ std::vector<std::shared_ptr<TimeAllocation>> DataCzar::LoadInTAs(tinyxml2::XMLNo
 		pTAHeader = pTAHeader->NextSiblingElement("research");
 	}
 
+	return temp;
+}
+
+std::vector<int> DataCzar::LoadInPersonIDs(tinyxml2::XMLNode * pPersonRoot)
+{
+	std::vector<int> temp;
+	tinyxml2::XMLElement * pPersonHeader = pPersonRoot->FirstChildElement("id");
+	while (pPersonHeader != nullptr)
+	{
+		int i;
+		pPersonHeader->QueryIntText(&i);
+		temp.push_back(i);
+
+		//move xml pointer to next project in file
+		pPersonHeader = pPersonHeader->NextSiblingElement("id");
+	}
 	return temp;
 }
 

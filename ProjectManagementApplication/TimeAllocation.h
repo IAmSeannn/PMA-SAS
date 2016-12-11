@@ -4,6 +4,7 @@
 #include <tuple>
 #include <iostream>
 #include <memory>
+#include <vector>
 
 class TimeAllocation
 {
@@ -15,12 +16,15 @@ public:
 	std::string GetEnd() { return end_.getFormatted(); }
 	void SetEnd(std::string s) { end_ = s; }
 	const int GetTimeSpent() const;
+	std::vector<int> & GetPersonIDs() { return PersonIDs; }
+	void SetPersonIDs(std::vector<int> & v) { PersonIDs = v; }
 	friend bool operator<(const TimeAllocation & lhs, const TimeAllocation & rhs);
 
 protected:
 	DateTime start_;
 	DateTime end_;
 	std::string spacer = "   >";
+	std::vector<int> PersonIDs;
 };
 
 std::ostream &operator<<(std::ostream &output, std::shared_ptr<TimeAllocation> ta);

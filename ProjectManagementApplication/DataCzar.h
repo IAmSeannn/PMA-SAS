@@ -23,7 +23,9 @@ private:
 	std::vector<Person> Persons;
 	tinyxml2::XMLError LoadInXML(const std::string);
 	void LoadInProjects(tinyxml2::XMLNode *);
+	void LoadInPersons(tinyxml2::XMLNode *);
 	std::vector<Task> LoadInTasks(tinyxml2::XMLNode *);
 	std::vector<std::shared_ptr<TimeAllocation>> LoadInTAs(tinyxml2::XMLNode *);
+	std::vector<int> LoadInPersonIDs(tinyxml2::XMLNode * pPersonRoot);
 };
 

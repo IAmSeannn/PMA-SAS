@@ -22,11 +22,17 @@
                   <start>18/08/2014 04:00</start>
                   <end>27/01/2016 06:00</end>
                   <attendees>Me, the ingredients.</attendees>
+                  <persons>
+                    <id>1</id>
+                  </persons>
               </meeting>
               <workDone>
                   <start>27/01/2016 10:00</start>
                   <end>27/01/2016 12:00</end>
                   <desc>We made the food, killed all the ingredients.. Pain.</desc>
+                  <persons>
+                    <id>2</id>
+                  </persons>
               </workDone>
           </timeAllocations>
       </task>
@@ -45,6 +51,10 @@
                 <start>28/01/2016 16:00</start>
                 <end>28/01/2016 20:00</end>
                 <desc>The food was removed from the system.</desc>
+                <persons>
+                  <id>2</id>
+                  <id>1</id>
+                </persons>
               </workDone>
               <workDone>
                   <start>28/01/2016 10:00</start>
