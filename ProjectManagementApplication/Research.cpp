@@ -5,7 +5,10 @@ Research::~Research(){}
 const std::string Research::GetDetails() const
 {
 	std::stringstream temp;
-	temp << MagicStr::SpaceTA << "Research:\n" << MagicStr::SpaceTA << " Timespan: " << start_.getFormatted() << " - " << end_.getFormatted() << "\n" << MagicStr::SpaceTA << " Topic: " << details_;
+	temp << MagicStr::SpaceTA << "Research:\n";
+	temp << MagicStr::SpaceTA << " TimeSpan: " << start_.getFormatted() << " - " << end_.getFormatted() << "\n";
+	temp << MagicStr::SpaceTA << " Topic: " << details_ << "\n";
+	temp << MagicStr::SpaceTA << " Persons Involved: " << GetPersonNamesFormatted();
 	return temp.str();
 }
 

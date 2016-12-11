@@ -25,6 +25,7 @@ protected:
 	DateTime start_;
 	DateTime end_;
 	std::vector<int> PersonIDs;
+	const std::string GetPersonNamesFormatted() const;
 };
 
 std::ostream &operator<<(std::ostream &output, std::shared_ptr<TimeAllocation> ta);

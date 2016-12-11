@@ -14,7 +14,10 @@ BugFix::~BugFix()
 const std::string BugFix::GetDetails() const
 {
 	std::stringstream temp;
-	temp << MagicStr::SpaceTA << "Bug Fix:\n" << MagicStr::SpaceTA << " TimeSpan: " << start_.getFormatted() << " - " << end_.getFormatted() << "\n" << MagicStr::SpaceTA <<  " ID: " << id_ << "Description: " << desc_;
+	temp << MagicStr::SpaceTA << "Bug Fix:\n";
+	temp << MagicStr::SpaceTA << " TimeSpan: " << start_.getFormatted() << " - " << end_.getFormatted() << "\n";
+	temp << MagicStr::SpaceTA << " ID: " << id_ << "Description: " << desc_ << "\n";
+	temp << MagicStr::SpaceTA << " Persons Involved: " << GetPersonNamesFormatted();
 	return temp.str();
 }
 

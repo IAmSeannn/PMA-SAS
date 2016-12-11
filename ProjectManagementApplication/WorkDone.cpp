@@ -5,7 +5,10 @@ WorkDone::~WorkDone(){}
 const std::string WorkDone::GetDetails() const
 {
 	std::stringstream temp;
-	temp << MagicStr::SpaceTA << "Work Done:\n" << MagicStr::SpaceTA << " TimeSpan: " << start_.getFormatted() << " - " << end_.getFormatted() << "\n" << MagicStr::SpaceTA <<  " Description: " << desc_;
+	temp << MagicStr::SpaceTA << "Work Done:\n";
+	temp << MagicStr::SpaceTA << " TimeSpan: " << start_.getFormatted() << " - " << end_.getFormatted() << "\n";
+	temp << MagicStr::SpaceTA << " Description: " << desc_ << "\n";
+	temp << MagicStr::SpaceTA << " Persons Involved: " << GetPersonNamesFormatted();
 	return temp.str();
 }
 

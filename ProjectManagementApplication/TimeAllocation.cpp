@@ -1,4 +1,6 @@
 #include "TimeAllocation.h"
+#include "DataCzar.h"
+#include <algorithm>
 
 const int TimeAllocation::GetTimeSpent() const
 {
@@ -21,4 +23,21 @@ bool operator<(const TimeAllocation & lhs, const TimeAllocation & rhs)
 	{
 		return rhs.end_.GetTimeInMinutes() < lhs.end_.GetTimeInMinutes();
 	}
+}
+
+const std::string TimeAllocation::GetPersonNamesFormatted() const
+{
+	std::stringstream temp;
+
+	for (auto i : PersonIDs)
+	{
+		for (auto p : DataCzar::Current->GetPersons())
+		{
+			if (i == p.GetID())
+			{
+				temp << p.GetName() << ". ";
+			}
+		}
+	}
+	return temp.str();
 }
