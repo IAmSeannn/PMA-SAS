@@ -1,13 +1,16 @@
 #include "Project.h"
 #include "RuntimeMenu.h"
 
+const static std::string SpaceProject;
+const static std::string SpaceTask;
+const static std::string SpaceTA;
+
 std::ostream &operator<<(std::ostream &output, Project p)
 {
-	std::string space = "";
-	output << RuntimeMenu::TurnIntoSubtitle(p.GetName(), space);
-	output << RuntimeMenu::GetTimeSpentString(p.GetMinutesSpent(), space);
-	output << space << "Started: " << p.GetStart() << "\n";
-	output << space << "Deadline: " << p.GetDeadline() << "\n";
+	output << RuntimeMenu::TurnIntoSubtitle(p.GetName(), MagicStr::SpaceProject);
+	output << RuntimeMenu::GetTimeSpentString(p.GetMinutesSpent(), MagicStr::SpaceProject);
+	output << MagicStr::SpaceProject << "Started: " << p.GetStart() << "\n";
+	output << MagicStr::SpaceProject << "Deadline: " << p.GetDeadline() << "\n";
 	output << "------\n";
 	output << "Tasks:\n";
 	output << "------\n";

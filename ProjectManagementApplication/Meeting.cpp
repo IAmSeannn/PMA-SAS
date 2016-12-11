@@ -5,7 +5,7 @@ Meeting::~Meeting(){}
 const std::string Meeting::GetDetails() const
 {
 	std::stringstream temp;
-	temp << spacer << "Meeting: " <<start_.getFormatted() << " - " << end_.getFormatted() << " Attendees: " << attendees_;
+	temp << MagicStr::SpaceTA << "Meeting:\n" << MagicStr::SpaceTA << " TimeSpan: " << start_.getFormatted() << " - " << end_.getFormatted() << "\n" << MagicStr::SpaceTA << " Attendees: " << attendees_;
 	return temp.str();
 }
 

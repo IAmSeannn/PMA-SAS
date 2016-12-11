@@ -149,6 +149,7 @@
     <ClCompile Include="BugFix.cpp" />
     <ClCompile Include="DataCzar.cpp" />
     <ClCompile Include="DateTime.cpp" />
+    <ClCompile Include="MagicStr.cpp" />
     <ClCompile Include="Meeting.cpp" />
     <ClCompile Include="MenuSystem.cpp" />
     <ClCompile Include="Person.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="BugFix.h" />
     <ClInclude Include="DataCzar.h" />
     <ClInclude Include="DateTime.h" />
+    <ClInclude Include="MagicStr.h" />
     <ClInclude Include="Meeting.h" />
     <ClInclude Include="MenuSystem.h" />
     <ClInclude Include="Person.h" />

@@ -14,7 +14,7 @@ BugFix::~BugFix()
 const std::string BugFix::GetDetails() const
 {
 	std::stringstream temp;
-	temp << spacer << "Bug Fix: " << start_.getFormatted() << " - " << end_.getFormatted() << " Description: " << desc_ << " ID: " << id_;
+	temp << MagicStr::SpaceTA << "Bug Fix:\n" << MagicStr::SpaceTA << " TimeSpan: " << start_.getFormatted() << " - " << end_.getFormatted() << "\n" << MagicStr::SpaceTA <<  " ID: " << id_ << "Description: " << desc_;
 	return temp.str();
 }
 

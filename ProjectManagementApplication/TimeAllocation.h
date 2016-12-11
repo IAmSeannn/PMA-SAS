@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include "MagicStr.h"
 
 class TimeAllocation
 {
@@ -23,7 +24,6 @@ public:
 protected:
 	DateTime start_;
 	DateTime end_;
-	std::string spacer = "   >";
 	std::vector<int> PersonIDs;
 };
 
