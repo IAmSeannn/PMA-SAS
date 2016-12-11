@@ -63,6 +63,7 @@ void TimeAllocation::SetupNewStartTime()
 {
 	std::cout << "When was the work started? dd/mm/yyyy hh:mm\n";
 	std::string input;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::getline(std::cin, input);
 	DateTime temp(input);
 	start_ = temp;
@@ -72,6 +73,7 @@ void TimeAllocation::SetupNewEndTime()
 {
 	std::cout << "When was the work ended? dd/mm/yyyy hh:mm\n";
 	std::string input;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::getline(std::cin, input);
 	DateTime temp(input);
 	end_ = temp;
@@ -79,8 +81,8 @@ void TimeAllocation::SetupNewEndTime()
 
 void TimeAllocation::SetupNewPersonsInvolved()
 {
-	std::cout << "Please enter the ID of any Persons assigned to this, separated by commas (no spaces):\n";
 	std::string temp;
+	std::cout << "Please enter the ID of any Persons assigned to this, separated by commas (no spaces):\n";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::getline(std::cin, temp);
 	PopulatePersonIDs(temp);

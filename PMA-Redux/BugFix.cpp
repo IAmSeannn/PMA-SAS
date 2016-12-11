@@ -16,7 +16,7 @@ const std::string BugFix::GetDetails() const
 	std::stringstream temp;
 	temp << MagicStr::SpaceTA << "Bug Fix:\n";
 	temp << MagicStr::SpaceTA << " TimeSpan: " << start_.getFormatted() << " - " << end_.getFormatted() << "\n";
-	temp << MagicStr::SpaceTA << " ID: " << id_ << "Description: " << desc_ << "\n";
+	temp << MagicStr::SpaceTA << " ID: " << id_ << " Description: " << desc_ << "\n";
 	temp << MagicStr::SpaceTA << " Persons Involved: " << GetPersonNamesFormatted();
 	return temp.str();
 }
@@ -40,7 +40,6 @@ void BugFix::EditClassFromUser()
 
 	char input;
 	bool success = false;
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::cin >> input;
 	while (!success)
 	{
@@ -74,7 +73,7 @@ void BugFix::EditClassFromUser()
 
 void BugFix::SetupNewBugIDAndDetailsFromUser()
 {
-	std::cout << "Please enter a description of the Bug Fix:";
+	std::cout << "Please enter a description of the Bug Fix:\n";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::getline(std::cin, desc_);
 	std::cout << "Please enter the bug ID:\n";

@@ -43,16 +43,30 @@
                         <id>2</id>
                     </persons>
                 </workDone>
+                <workDone>
+                    <start>12/12/2007 12:12</start>
+                    <end>12/12/2007 13:13</end>
+                    <desc>Testing for bugs</desc>
+                    <persons/>
+                </workDone>
                 <bugFix>
-                    <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
-                    <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
-                    <desc>PLEASE I GOT RID OF THE MEAN POINTERS</desc>
-                    <id>12</id>
+                    <start>12/12/2005 20:20</start>
+                    <end>12/12/2006 20:20</end>
+                    <desc>This is a new bug fix</desc>
+                    <id>23</id>
                     <persons>
                         <id>1</id>
                         <id>2</id>
                     </persons>
                 </bugFix>
+                <research>
+                    <start>12/12/2005 23:23</start>
+                    <end>12/12/2005 23:56</end>
+                    <details>searchign for an answer</details>
+                    <persons>
+                        <id>1</id>
+                    </persons>
+                </research>
             </timeAllocations>
         </task>
         <task>

@@ -153,8 +153,8 @@ void MenuSystem::CommandSortTAs(bool full) //true for assending, false for desen
 {
 	std::cout << "Before displaying the data, how would you like it sorted?\n";
 	std::cout << "(Enter # to return to the main menu)\n";
-	std::cout << "1. Assending\n";
-	std::cout << "2. Desending\n";
+	std::cout << "1. Desending\n";
+	std::cout << "2. Assending\n";
 
 	char response;
 	bool responseSuccess = false;
@@ -167,7 +167,6 @@ void MenuSystem::CommandSortTAs(bool full) //true for assending, false for desen
 		case '1':
 		case '2':
 			responseSuccess = true;
-			//desending
 			break;
 		case '#':
 			return;
@@ -306,6 +305,9 @@ void MenuSystem::CommandEditTimeAllocation()
 		temp->EditClassFromUser();
 		//save changes to file
 		DataCzar::Current->SaveToFile();
+
+		std::cout << "Time Allocation edited and saved. Press any key to continue...";
+		Utils::Pause();
 	}
 }
 
