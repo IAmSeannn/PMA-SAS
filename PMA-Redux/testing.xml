@@ -18,14 +18,6 @@
             <start>27/01/2016 04:00</start>
             <end>27/01/2016 12:00</end>
             <timeAllocations>
-                <workDone>
-                    <start>27/01/2016 10:00</start>
-                    <end>27/01/2016 12:00</end>
-                    <desc>We made the food, killed all the ingredients.. Pain.</desc>
-                    <persons>
-                        <id>2</id>
-                    </persons>
-                </workDone>
                 <meeting>
                     <start>18/08/2014 04:00</start>
                     <end>27/01/2016 06:00</end>
@@ -35,14 +27,32 @@
                     </persons>
                 </meeting>
                 <workDone>
+                    <start>27/01/2016 10:00</start>
+                    <end>27/01/2016 12:00</end>
+                    <desc>We made the food, killed all the ingredients.. Pain.</desc>
+                    <persons>
+                        <id>2</id>
+                    </persons>
+                </workDone>
+                <workDone>
                     <start>12/12/2008 20:20</start>
                     <end>12/12/2008 21:20</end>
-                    <desc>A better desciption win</desc>
+                    <desc>PLEASE WROK WORK WORK WORK!!!!!</desc>
                     <persons>
                         <id>1</id>
                         <id>2</id>
                     </persons>
                 </workDone>
+                <bugFix>
+                    <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
+                    <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
+                    <desc>PLEASE I GOT RID OF THE MEAN POINTERS</desc>
+                    <id>12</id>
+                    <persons>
+                        <id>1</id>
+                        <id>2</id>
+                    </persons>
+                </bugFix>
             </timeAllocations>
         </task>
         <task>
@@ -51,27 +61,6 @@
             <start>28/01/2016 04:00</start>
             <end>28/01/2016 12:00</end>
             <timeAllocations>
-                <workDone>
-                    <start>28/01/2016 16:00</start>
-                    <end>28/01/2016 20:00</end>
-                    <desc>The food was removed from the system.</desc>
-                    <persons>
-                        <id>2</id>
-                        <id>1</id>
-                    </persons>
-                </workDone>
-                <research>
-                    <start>28/01/2016 12:00</start>
-                    <end>28/01/2016 22:00</end>
-                    <details>I discovered how to make better food.</details>
-                    <persons/>
-                </research>
-                <workDone>
-                    <start>28/01/2016 10:00</start>
-                    <end>28/01/2016 12:00</end>
-                    <desc>The food was devoured.</desc>
-                    <persons/>
-                </workDone>
                 <meeting>
                     <start>28/01/2016 08:00</start>
                     <end>28/01/2016 12:00</end>
@@ -84,6 +73,27 @@
                     <attendees>Me, the excellent meal.</attendees>
                     <persons/>
                 </meeting>
+                <workDone>
+                    <start>28/01/2016 16:00</start>
+                    <end>28/01/2016 20:00</end>
+                    <desc>The food was removed from the system.</desc>
+                    <persons>
+                        <id>2</id>
+                        <id>1</id>
+                    </persons>
+                </workDone>
+                <workDone>
+                    <start>28/01/2016 10:00</start>
+                    <end>28/01/2016 12:00</end>
+                    <desc>The food was devoured.</desc>
+                    <persons/>
+                </workDone>
+                <research>
+                    <start>28/01/2016 12:00</start>
+                    <end>28/01/2016 22:00</end>
+                    <details>I discovered how to make better food.</details>
+                    <persons/>
+                </research>
             </timeAllocations>
         </task>
     </project>
