@@ -67,6 +67,15 @@
                         <id>1</id>
                     </persons>
                 </research>
+                <research>
+                    <start>12/12/2001 12:12</start>
+                    <end>12/12/2003 23:23</end>
+                    <details>brand new research wew!</details>
+                    <persons>
+                        <id>1</id>
+                        <id>2</id>
+                    </persons>
+                </research>
             </timeAllocations>
         </task>
         <task>
@@ -121,7 +130,29 @@
             <desc>testing task desc</desc>
             <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
             <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
+            <timeAllocations>
+                <research>
+                    <start>12/12/2011 22:22</start>
+                    <end>123/-858993460/-858993460 -858993460:-858993460</end>
+                    <details>a final test</details>
+                    <persons>
+                        <id>1</id>
+                    </persons>
+                </research>
+            </timeAllocations>
+        </task>
+        <task>
+            <name>a final task please</name>
+            <desc>a great desc</desc>
+            <start>12/12/1212 -858993460:-858993460</start>
+            <end>12121212/-858993460/-858993460 -858993460:-858993460</end>
             <timeAllocations/>
         </task>
+    </project>
+    <project>
+        <name>a final proje</name>
+        <desc>asdasdasd asdasd asd</desc>
+        <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
+        <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
     </project>
 </root>

@@ -67,5 +67,5 @@ void Meeting::SetupNewAttendeesFromUser()
 {
 	std::cout << "Please enter who will be attending:\n";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::getline(std::cin, attendees_);
+	std::getline(std::cin >> std::ws, attendees_);
 }

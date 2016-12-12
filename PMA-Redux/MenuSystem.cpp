@@ -402,7 +402,7 @@ Project * GetProjectSelectionFromUser()
 	while (!success)
 	{
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::getline(std::cin, input);
+		std::getline(std::cin >> std::ws, input);
 
 		if (input == "#")
 		{
@@ -451,7 +451,7 @@ Task * GetTaskSelectionFromUser(Project * projectToEdit)
 	bool success = false;
 	while (!success)
 	{
-		std::getline(std::cin, input);
+		std::getline(std::cin >> std::ws, input);
 
 		if (input == "#")
 		{
@@ -500,7 +500,7 @@ std::shared_ptr<TimeAllocation> GetTimeAllocationSelectionFromUser(Task * taskTo
 
 	while (!success)
 	{
-		std::getline(std::cin, input);
+		std::getline(std::cin >> std::ws, input);
 
 		if (input == "#")
 		{

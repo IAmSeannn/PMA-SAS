@@ -31,7 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="SavedData.xml" />
-    <Xml Include="testing.xml" />
+    <Xml Include="testing.xml">
+      <SubType>Designer</SubType>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BugFix.h" />

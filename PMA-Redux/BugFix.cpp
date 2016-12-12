@@ -75,7 +75,7 @@ void BugFix::SetupNewBugIDAndDetailsFromUser()
 {
 	std::cout << "Please enter a description of the Bug Fix:\n";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::getline(std::cin, desc_);
+	std::getline(std::cin >> std::ws, desc_);
 	std::cout << "Please enter the bug ID:\n";
 	std::cin >> id_;
 }

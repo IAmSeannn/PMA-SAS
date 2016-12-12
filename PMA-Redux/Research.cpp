@@ -67,5 +67,5 @@ void Research::SetupNewResearchDetailsFromUser()
 {
 	std::cout << "Please enter a description of the research:\n";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::getline(std::cin, details_);
+	std::getline(std::cin >> std::ws, details_);
 }

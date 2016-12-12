@@ -32,10 +32,12 @@ void WorkDone::EditClassFromUser()
 	std::cout << "3. Add Person Involved\n";
 	std::cout << "4. Edit Work Done\n";
 
+	//ERROR LOCATION, UNSURE WHY
+
 	char input;
 	bool success = false;
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::cin >> input;
+	std::cin >> std::ws >> input;
 	while (!success)
 	{
 		switch (input)
@@ -70,5 +72,5 @@ void WorkDone::SetupNewWorkDoneFromUser()
 {
 	std::cout << "Please enter the work that was done:\n";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::getline(std::cin, desc_);
+	std::getline(std::cin >> std::ws, desc_);
 }
