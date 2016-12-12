@@ -18,6 +18,7 @@ const int Task::GetMinutesSpent()
 std::ostream &operator<<(std::ostream &output, Task & t)
 {
 	output << RuntimeMenu::TurnIntoSubtitle(t.name_, MagicStr::SpaceTask);
+	output << MagicStr::SpaceTask << "Description: " << t.GetDesc() << "\n";
 	output << RuntimeMenu::GetTimeSpentString(t.GetMinutesSpent(), MagicStr::SpaceTask);
 	output << MagicStr::SpaceTask << "Started: " << t.start_.getFormatted() << "\n";
 	output << MagicStr::SpaceTask << "Deadline: " << t.deadline_.getFormatted() << "\n";

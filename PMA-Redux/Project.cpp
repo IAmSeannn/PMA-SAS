@@ -8,6 +8,7 @@ const static std::string SpaceTA;
 std::ostream &operator<<(std::ostream &output, Project p)
 {
 	output << RuntimeMenu::TurnIntoSubtitle(p.GetName(), MagicStr::SpaceProject);
+	output << MagicStr::SpaceProject << "Description: " << p.GetDesc() << "\n";
 	output << RuntimeMenu::GetTimeSpentString(p.GetMinutesSpent(), MagicStr::SpaceProject);
 	output << MagicStr::SpaceProject << "Started: " << p.GetStart() << "\n";
 	output << MagicStr::SpaceProject << "Deadline: " << p.GetDeadline() << "\n";
