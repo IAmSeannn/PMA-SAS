@@ -39,11 +39,19 @@ void MenuSystem::CommandLoadMainMenu()
 			CommandSortData();
 			break;
 		case 4:
-			//add data
+			//add ta
 			CommmandAddTimeAllocation();
 			break;
 		case 5:
-			//edit data
+			//add task
+			CommandAddTask();
+			break;
+		case 6:
+			//add proj
+			CommandAddProject();
+			break;
+		case 7:
+			//edit ta
 			CommandEditTimeAllocation();
 			break;
 		case 9:
@@ -309,6 +317,66 @@ void MenuSystem::CommandEditTimeAllocation()
 		std::cout << "Time Allocation edited and saved. Press any key to continue...";
 		Utils::Pause();
 	}
+}
+
+//commands to add new project
+void MenuSystem::CommandAddProject()
+{
+	RuntimeMenu::DisplayTitle();
+
+	Project p;
+
+	std::cout << "Please enter the new projects name: \n";
+	std::string temp;
+	std::getline(std::cin >> std::ws, temp);
+	p.SetName(temp);
+	std::cout << "Please enter the new projects descriptions:\n";
+	std::getline(std::cin >> std::ws, temp);
+	p.SetDesc(temp);
+	std::cout << "When does the project start? DD/MM/YYYY HH:MM\n";
+	std::getline(std::cin >> std::ws, temp);
+	p.SetStart(temp);
+	std::cout << "When does the project end? DD/MM/YYYY HH:MM\n";
+	std::getline(std::cin >> std::ws, temp);
+	p.SetDeadline(temp);
+
+	DataCzar::Current->GetProjects().push_back(p);
+	DataCzar::Current->SaveToFile();
+	std::cout << "Project added. Please press enter...\n";
+	Utils::Pause();
+}
+
+//commmands to add new task
+void MenuSystem::CommandAddTask()
+{
+	auto * projectToEdit = GetProjectSelectionFromUser();
+
+	if (projectToEdit == nullptr)
+	{
+		return;
+	}
+
+	RuntimeMenu::DisplayTitle();
+
+	Task t;
+	std::cout << "Please enter the new tasks name: \n";
+	std::string temp;
+	std::getline(std::cin >> std::ws, temp);
+	t.SetName(temp);
+	std::cout << "Please enter the new tasks descriptions:\n";
+	std::getline(std::cin >> std::ws, temp);
+	t.SetDesc(temp);
+	std::cout << "When does the task start? DD/MM/YYYY HH:MM\n";
+	std::getline(std::cin >> std::ws, temp);
+	t.SetStart(temp);
+	std::cout << "When does the task end? DD/MM/YYYY HH:MM\n";
+	std::getline(std::cin >> std::ws, temp);
+	t.SetDeadline(temp);
+
+	projectToEdit->GetTasks().push_back(t);
+	DataCzar::Current->SaveToFile();
+	std::cout << "Task added. Please press enter...\n";
+	Utils::Pause();
 }
 
 

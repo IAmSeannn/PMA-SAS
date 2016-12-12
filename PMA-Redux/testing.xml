@@ -112,9 +112,16 @@
         </task>
     </project>
     <project>
-        <name>LUNCH TIME!</name>
-        <desc>A plan for lunchtime, incomplete.</desc>
-        <start>28/01/2016 08:00</start>
-        <end>28/01/2016 12:00</end>
+        <name>big test 2</name>
+        <desc>big test desc</desc>
+        <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
+        <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
+        <task>
+            <name>testing task</name>
+            <desc>testing task desc</desc>
+            <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
+            <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
+            <timeAllocations/>
+        </task>
     </project>
 </root>
