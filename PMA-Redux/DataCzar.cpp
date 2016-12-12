@@ -1,10 +1,7 @@
 #include "DataCzar.h"
 
 std::shared_ptr<DataCzar> DataCzar::Current;
-
-DataCzar::DataCzar()
-{
-}
+DataCzar::DataCzar(){}
 
 tinyxml2::XMLError DataCzar::SetUp(const std::string & path)
 {

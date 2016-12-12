@@ -36,8 +36,9 @@ void WorkDone::EditClassFromUser()
 
 	char input;
 	bool success = false;
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::cin >> std::ws >> input;
+	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	//std::cin >> std::ws >> input;
+	std::cin >> input;
 	while (!success)
 	{
 		switch (input)

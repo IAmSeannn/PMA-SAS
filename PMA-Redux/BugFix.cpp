@@ -1,15 +1,7 @@
 #include "BugFix.h"
 
-
-
-BugFix::BugFix()
-{
-}
-
-
-BugFix::~BugFix()
-{
-}
+BugFix::BugFix(){}
+BugFix::~BugFix(){}
 
 const std::string BugFix::GetDetails() const
 {

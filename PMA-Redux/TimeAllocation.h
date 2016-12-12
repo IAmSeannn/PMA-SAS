@@ -11,8 +11,8 @@ class TimeAllocation
 {
 public:
 	virtual const std::string GetDetails() const = 0;
-	virtual void SetUpNewClassFromUser() = 0;
-	virtual void EditClassFromUser() = 0;
+	virtual void SetUpNewClassFromUser() = 0; //run through a system thats tells a user what to input, collects input and assigns it to the correct place. This is the add varient, that creates an entire new TimeAlloc and adds it to the task's vector.
+	virtual void EditClassFromUser() = 0; //run through a system thats tells a user what to input, collects input and assigns it to the correct place. This is the edit varient, that takes an existing TimeAlloc and edits it.
 	void SetStart(std::string s) { start_ = s; }
 	std::string GetStart() { return start_.getFormatted(); }
 	std::string GetEnd() { return end_.getFormatted(); }

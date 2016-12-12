@@ -59,7 +59,6 @@ int main(int argc, char* argv[])
 	{
 		LoadInitialFile();
 	}
-	
 
 	MenuSystem::CommandLoadMainMenu();
 }
