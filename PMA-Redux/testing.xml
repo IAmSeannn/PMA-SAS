@@ -18,6 +18,24 @@
             <start>27/01/2016 04:00</start>
             <end>27/01/2016 12:00</end>
             <timeAllocations>
+                <bugFix>
+                  <start>12/12/2005 20:20</start>
+                  <end>12/12/2006 20:20</end>
+                  <desc>This is a new bug fix</desc>
+                  <id>23</id>
+                  <persons>
+                    <id>1</id>
+                    <id>2</id>
+                  </persons>
+                </bugFix>
+                <research>
+                  <start>12/12/2005 23:23</start>
+                  <end>12/12/2005 23:56</end>
+                  <details>searchign for an answer</details>
+                  <persons>
+                    <id>1</id>
+                  </persons>
+                </research>
                 <meeting>
                     <start>18/08/2014 04:00</start>
                     <end>27/01/2016 06:00</end>
@@ -49,25 +67,6 @@
                     <desc>Testing for bugs</desc>
                     <persons/>
                 </workDone>
-                <bugFix>
-                    <start>12/12/2005 20:20</start>
-                    <end>12/12/2006 20:20</end>
-                    <desc>This is a new bug fix</desc>
-                    <id>23</id>
-                    <persons>
-                        <id>1</id>
-                        <id>2</id>
-                    </persons>
-                </bugFix>
-                <research>
-                    <start>12/12/2005 23:23</start>
-                    <end>12/12/2005 23:56</end>
-                    <details>searchign for an answer</details>
-                    <persons>
-                        <id>1</id>
-                    </persons>
-                </research>
-                <research>
                     <start>12/12/2001 12:12</start>
                     <end>12/12/2003 23:23</end>
                     <details>brand new research wew!</details>
@@ -75,7 +74,6 @@
                         <id>1</id>
                         <id>2</id>
                     </persons>
-                </research>
             </timeAllocations>
         </task>
         <task>
@@ -119,40 +117,5 @@
                 </research>
             </timeAllocations>
         </task>
-    </project>
-    <project>
-        <name>big test 2</name>
-        <desc>big test desc</desc>
-        <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
-        <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
-        <task>
-            <name>testing task</name>
-            <desc>testing task desc</desc>
-            <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
-            <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
-            <timeAllocations>
-                <research>
-                    <start>12/12/2011 22:22</start>
-                    <end>123/-858993460/-858993460 -858993460:-858993460</end>
-                    <details>a final test</details>
-                    <persons>
-                        <id>1</id>
-                    </persons>
-                </research>
-            </timeAllocations>
-        </task>
-        <task>
-            <name>a final task please</name>
-            <desc>a great desc</desc>
-            <start>12/12/1212 -858993460:-858993460</start>
-            <end>12121212/-858993460/-858993460 -858993460:-858993460</end>
-            <timeAllocations/>
-        </task>
-    </project>
-    <project>
-        <name>a final proje</name>
-        <desc>asdasdasd asdasd asd</desc>
-        <start>-858993460/-858993460/-858993460 -858993460:-858993460</start>
-        <end>-858993460/-858993460/-858993460 -858993460:-858993460</end>
     </project>
 </root>

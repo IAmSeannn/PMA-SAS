@@ -3,6 +3,7 @@
 #include "DataCzar.h"
 #include "Utils.h"
 #include <algorithm>
+#include <functional>
 #include <memory>
 
 MenuSystem::MenuSystem(){}
@@ -190,9 +191,9 @@ void MenuSystem::CommandSortTAs(bool full) //true for assending, false for desen
 		{
 			for (Task &t : p.GetTasks())
 			{
-				std::sort(t.GetTAs().begin(), t.GetTAs().end(), Utils::IsGreaterThan);
+				std::sort(t.GetTAs().begin(), t.GetTAs().end(), std::greater<std::shared_ptr<TimeAllocation>>());
 
-				if (response == 1)
+				if (response == '1')
 				{
 					//reverse the vector
 					std::reverse(t.GetTAs().begin(), t.GetTAs().end());
@@ -214,9 +215,9 @@ void MenuSystem::CommandSortTAs(bool full) //true for assending, false for desen
 			}
 		}
 
-		std::sort(master.begin(), master.end(), Utils::IsGreaterThan);
+		std::sort(master.begin(), master.end(), std::greater<std::shared_ptr<TimeAllocation>>());
 
-		if (response == 1)
+		if (response == '1')
 		{
 			//reverse the vector
 			std::reverse(master.begin(), master.end());

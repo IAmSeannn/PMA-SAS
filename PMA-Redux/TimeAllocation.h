@@ -20,7 +20,7 @@ public:
 	const int GetTimeSpent() const;
 	std::vector<int> & GetPersonIDs() { return PersonIDs; }
 	void SetPersonIDs(std::vector<int> & v) { PersonIDs = v; }
-	friend bool operator<(const TimeAllocation & lhs, const TimeAllocation & rhs);
+	friend bool operator<(std::shared_ptr<TimeAllocation> lhs, std::shared_ptr<TimeAllocation> rhs);
 
 protected:
 	DateTime start_;
