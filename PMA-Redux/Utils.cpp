@@ -31,11 +31,6 @@ void Utils::CreateResearch(Task * pT)
 	pT->GetTAs().push_back(r);
 }
 
-//const bool Utils::IsGreaterThan(std::shared_ptr<TimeAllocation> lhs, std::shared_ptr<TimeAllocation>rhs)
-//{
-//	return (*lhs) < (*rhs);
-//}
-
 void Utils::Pause()
 {
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

@@ -13,15 +13,15 @@ std::ostream &operator<<(std::ostream &output, std::shared_ptr<TimeAllocation> t
 	return output;
 }
 
-bool operator<(const TimeAllocation & lhs, const TimeAllocation & rhs)
+bool operator<(std::shared_ptr<TimeAllocation> lhs, std::shared_ptr<TimeAllocation> rhs)
 {
-	if (rhs.start_.GetTimeInMinutes() != lhs.start_.GetTimeInMinutes())
+	if (rhs->start_.GetTimeInMinutes() != lhs->start_.GetTimeInMinutes())
 	{
-		return rhs.start_.GetTimeInMinutes() < lhs.start_.GetTimeInMinutes();
+		return rhs->start_.GetTimeInMinutes() < lhs->start_.GetTimeInMinutes();
 	}
 	else
 	{
-		return rhs.end_.GetTimeInMinutes() < lhs.end_.GetTimeInMinutes();
+		return rhs->end_.GetTimeInMinutes() < lhs->end_.GetTimeInMinutes();
 	}
 }
 
