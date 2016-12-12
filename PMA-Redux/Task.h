@@ -19,7 +19,7 @@ public:
 	std::string & GetName() { return name_; }
 	void SetName(std::string s) { name_ = s; }
 	void SetDesc(std::string s) { desc_ = s; }
-	std::string GetDesc() { return desc_; }
+	std::string & GetDesc() { return desc_; }
 	void SetTAs(std::vector<std::shared_ptr<TimeAllocation>> & ta) { timeAllocations_ = ta; }
 	std::vector<std::shared_ptr<TimeAllocation>> & GetTAs() { return timeAllocations_; }
 	void SetStart(std::string s) { start_ = s; }

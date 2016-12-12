@@ -1,7 +1,16 @@
-﻿Build started 12/12/2016 01:49:33.
+﻿Build started 12/12/2016 10:55:38.
      1>Project "C:\Users\iamse\Documents\Visual Studio 2015\Projects\ProjectManagementApplication\PMA-Redux\PMA-Redux.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Project.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BugFix.cpp DataCzar.cpp MenuSystem.cpp Project.cpp Source.cpp Task.cpp TimeAllocation.cpp Utils.cpp
+         TimeAllocation.cpp
+         MenuSystem.cpp
+         DataCzar.cpp
+         BugFix.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         Utils.cpp
+         Task.cpp
+         Source.cpp
          Project.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\iamse\Documents\Visual Studio 2015\Projects\ProjectManagementApplication\Debug\PMA-Redux.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\iamse\Documents\Visual Studio 2015\Projects\ProjectManagementApplication\Debug\PMA-Redux.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\iamse\Documents\Visual Studio 2015\Projects\ProjectManagementApplication\Debug\PMA-Redux.lib" /MACHINE:X86 Debug\BugFix.obj
@@ -26,4 +35,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.84
+Time Elapsed 00:00:02.93

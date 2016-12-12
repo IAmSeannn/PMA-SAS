@@ -9,7 +9,7 @@ public:
 	void SetUpNewClassFromUser();
 	void EditClassFromUser();
 	void SetDesc(std::string s) { desc_ = s; }
-	std::string GetDesc() { return desc_; }
+	std::string & GetDesc() { return desc_; }
 	void SetID(int i) { id_ = i; }
 	int GetID() { return id_; }
 private:

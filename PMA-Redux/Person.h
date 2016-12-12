@@ -7,7 +7,7 @@ public:
 	~Person();
 
 	void SetName(std::string s) { name_ = s; }
-	std::string GetName() { return name_; }
+	std::string & GetName() { return name_; }
 	void SetID(int i) { id_ = i; }
 	int GetID() { return id_; }
 private:
